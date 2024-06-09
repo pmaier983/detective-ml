@@ -3,13 +3,17 @@
   "compilerOptions": {
     /* Next.js/React Specific */
     "jsx": "preserve",
-    "plugins": [{ "name": "next" }],
-
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
-    }
+    },
+    "incremental": true
   },
   "include": [
     ".eslintrc.cjs",

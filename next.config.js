@@ -5,6 +5,10 @@
 await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  // The MVP is a static site, we may need a server in the future though
+  // https://nextjs.org/docs/app/building-your-application/deploying/static-exports
+  output: "export",
+};
 
 export default config;
