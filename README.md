@@ -42,16 +42,26 @@ Future versions of the game will require log in and a backend to allow users to 
   - [Styled Components](https://styled-components.com/)
     - My old favorite. Does not work with RSC, so not really an option any more. See options 1 for better choices.
 
-### What was done
+### What will be done
 
 - Current plan:
   - **Hosting**: Cloudflare/s3/Hetzner Static site. Why: Super cheap, very easy, and a good deploy pattern to try out once at least. If we Dockerize everything anyways it will be easy to move away from.
   - **Framework**: t3.gg - We can just use Next.js's static site export to start with, and easily add auth and api paths if the app expands.
   - **CSS_Choices**: Tailwind & CSS Modules. Tailwind for all small css, and CSS Modules for anything complex! Works with RSC and probably everything else!
 
+### What was done
+
+- **Hosting**:
+  - Purchased the DetectiveML.com url on route53
+  - Hosting the site through [cloudflare pages](https://pages.cloudflare.com/)
+
+### How to deploy
+
+- Simply push to main or update the [repo](https://github.com/pmaier983/detective-ml). Cloudflare pages is configured to watch!
+
 ## TODO
 
-- [ ] purchase DetectiveML.io
+- [x] purchase DetectiveML.com
 - [ ] configure deploy and website hosting
   - [ ] Decide on s3 vs. cloudflare & configure site -> static code
   - [ ] Document how to deploy easily (ideally just a package.json script)
