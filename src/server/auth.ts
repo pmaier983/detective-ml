@@ -60,8 +60,8 @@ export const authOptions: NextAuthOptions = {
   }) as Adapter,
   providers: [
     DiscordProvider({
-      clientId: env.DISCORD_CLIENT_ID,
-      clientSecret: env.DISCORD_CLIENT_SECRET,
+      clientId: env.GOOGLE_OAUTH_CLIENT_ID,
+      clientSecret: env.GOOGLE_OAUTH_CLIENT_SECRET,
     }),
     /**
      * ...add more providers here.

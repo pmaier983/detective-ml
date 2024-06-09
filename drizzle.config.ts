@@ -8,5 +8,5 @@ export default {
   dbCredentials: {
     url: env.DATABASE_URL,
   },
-  tablesFilter: ["detective-ml_*"],
+  tablesFilter: ["detective_ml_*"],
 } satisfies Config;

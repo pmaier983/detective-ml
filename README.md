@@ -55,3 +55,9 @@ Future versions of the game will require log in and a backend to allow users to 
 - [ ] configure deploy and website hosting
   - [ ] Decide on s3 vs. cloudflare & configure site -> static code
   - [ ] Document how to deploy easily (ideally just a package.json script)
+- [ ] Setup the proper font
+- [ ] Get a Favicon
+
+## TODO (post-MVP)
+
+- [ ] Setup a backend & a backend deploy/change script #drizzle #supabase
