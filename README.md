@@ -82,3 +82,4 @@ Future versions of the game will require log in and a backend to allow users to 
 - [ ] Setup a backend & a backend deploy/change script #drizzle #supabase
 - [ ] Rename \_api -> api once we want to use server side rendering
 - [x] Sketch out the db tables
+- [ ] Mobile lol

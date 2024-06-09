@@ -4,6 +4,8 @@ import { VT323 } from "next/font/google";
 
 import { TRPCReactProvider } from "~/trpc/react";
 
+import styles from "./layout.module.css";
+
 const vt323 = VT323({
   weight: "400",
   subsets: ["latin"],
@@ -23,7 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={vt323.className}>
       <body>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        <TRPCReactProvider>
+          <div className={styles.container}>
+            <div className={styles.screenCase}>{children}</div>
+          </div>
+        </TRPCReactProvider>
       </body>
     </html>
   );
