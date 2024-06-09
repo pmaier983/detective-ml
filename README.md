@@ -59,6 +59,13 @@ Future versions of the game will require log in and a backend to allow users to 
 
 - Simply push to main or update the [repo](https://github.com/pmaier983/detective-ml). Cloudflare pages is configured to watch!
 
+## Questions
+
+- [ ] Whats on the back of the cards?
+- [ ] Should we save your chat history? What does returning to a suspect do?
+- [ ] Can you lose? What does [Give up] do?
+- [ ] How important is time (the exact time you speak to someone...)
+
 ## TODO
 
 - [x] purchase DetectiveML.com
@@ -67,8 +74,11 @@ Future versions of the game will require log in and a backend to allow users to 
   - [ ] Document how to deploy easily (ideally just a package.json script)
 - [x] Setup the proper font
 - [ ] Get a Favicon
+- [ ] Add some music?
+- [ ] Add a good analytics platform
 
 ## TODO (post-MVP)
 
 - [ ] Setup a backend & a backend deploy/change script #drizzle #supabase
 - [ ] Rename \_api -> api once we want to use server side rendering
+- [x] Sketch out the db tables

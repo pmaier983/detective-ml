@@ -18,6 +18,31 @@ import { type AdapterAccount } from "next-auth/adapters";
  */
 export const createTable = pgTableCreator((name) => `detective-ml_${name}`);
 
+export const cases = createTable("case", {
+  id: varchar("id", { length: 255 }).notNull().primaryKey(),
+  title: varchar("title", { length: 255 }).notNull(),
+  description: text("description").notNull(),
+});
+
+export const casesRelations = relations(cases, ({ many }) => ({
+  suspects: many(suspects),
+}));
+
+export const suspects = createTable("suspect", {
+  id: varchar("id", { length: 255 }).notNull().primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  age: integer("age").notNull(),
+  // TODO: figure out the proper type for an image url.
+  imageUrl: varchar("imageUrl", { length: 8191 }).notNull(),
+  caseId: varchar("caseId", { length: 255 })
+    .notNull()
+    .references(() => cases.id),
+});
+
+export const suspectsRelations = relations(suspects, ({ one }) => ({
+  case: one(cases, { fields: [suspects.caseId], references: [cases.id] }),
+}));
+
 /****************************** DEFAULT NEXT_AUTH STUFF *****************************************/
 export const users = createTable("user", {
   id: varchar("id", { length: 255 }).notNull().primaryKey(),
