@@ -51,11 +51,11 @@ Future versions of the game will require log in and a backend to allow users to 
 
 ## TODO
 
-- [ ] purchase detectiveml.io
+- [ ] purchase DetectiveML.io
 - [ ] configure deploy and website hosting
   - [ ] Decide on s3 vs. cloudflare & configure site -> static code
   - [ ] Document how to deploy easily (ideally just a package.json script)
-- [ ] Setup the proper font
+- [x] Setup the proper font
 - [ ] Get a Favicon
 
 ## TODO (post-MVP)

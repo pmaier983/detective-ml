@@ -1,8 +1,13 @@
 import "~/styles/globals.css";
 
-import { GeistSans } from "geist/font/sans";
+import { VT323 } from "next/font/google";
 
 import { TRPCReactProvider } from "~/trpc/react";
+
+const vt323 = VT323({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "DetectiveML",
@@ -16,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
+    <html lang="en" className={vt323.className}>
       <body>
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
