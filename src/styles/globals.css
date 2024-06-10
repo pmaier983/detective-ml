@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Rely on normalize.css to provide a consistent cross-browser experience */
+
+/*
+  Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  /* Allow percentage-based heights in the application */
+  height: 100%;
+
+  background-color: black;
+  color: white;
+}
+
+/*
+  Create a root stacking context
+*/
+/* stylelint-disable-next-line selector-id-pattern */
+#root,
+#__next {
+  isolation: isolate;
+  height: 100%;
+}

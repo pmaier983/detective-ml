@@ -3,6 +3,7 @@ import "~/styles/globals.css";
 import { VT323 } from "next/font/google";
 
 import { TRPCReactProvider } from "~/trpc/react";
+import packageJson from "~/../package.json";
 
 import styles from "./layout.module.css";
 
@@ -27,7 +28,12 @@ export default function RootLayout({
       <body>
         <TRPCReactProvider>
           <div className={styles.container}>
-            <div className={styles.screenCase}>{children}</div>
+            <div className={styles.screenCase}>
+              <div className={styles.screen}>{children}</div>
+              <div className={styles.screenFooter}>
+                DetectiveML v{packageJson.version}
+              </div>
+            </div>
           </div>
         </TRPCReactProvider>
       </body>
