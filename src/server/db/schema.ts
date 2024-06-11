@@ -37,6 +37,7 @@ export const suspects = createTable("suspect", {
   caseId: varchar("caseId", { length: 255 })
     .notNull()
     .references(() => cases.id),
+  prompt: text("prompt").notNull(),
 });
 
 export const suspectsRelations = relations(suspects, ({ one }) => ({

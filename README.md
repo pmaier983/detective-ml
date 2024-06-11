@@ -25,7 +25,7 @@ Future versions of the game will require log in and a backend to allow users to 
     - Go Germany 🇩🇪, but also a super cheap hosting alternative to aws & possibly cloudflare. Might be able to setup a cluster on their servers, or do something similar to the first option on their [storage boxes](https://www.hetzner.com/storage/storage-box/)
 - Framework Choices:
   - [t3.gg](https://t3.gg/) (Next.js & server)
-    - Can handle anything you throw at it rather well. We could export a static Next.js site for the MVP and the easily add auth & solid api handling in the future.
+    - Can handle anything you throw at it rather well. We could export a static Next.js site for the MVP and then easily add auth & solid api handling in the future.
   - [Vite](https://vitejs.dev/) (Static React 19)
     - Would work really well for the MVP, but we would have to do a-lot of our own framework rolling and configuration. Setting up good CSS, auth patterns, api handling etc.
   - [Astro](https://astro.build/) (Static + low js)
@@ -34,7 +34,7 @@ Future versions of the game will require log in and a backend to allow users to 
     - If I wanted to learn remix I'm sure this would be a good choice. Not sure I do just yet though, so might pass. Good Next.js alternative.
 - CSS Choices:
   - [Stylex](https://github.com/facebook/stylex)/[Pigment Css](https://github.com/mui/pigment-css)
-    - The modern styled-components alternatives. Work well with [RSC](https://react.dev/reference/rsc/server-components)
+    - The modern styled-components alternatives. Works well with [RSC](https://react.dev/reference/rsc/server-components)
   - [Tailwind](https://tailwindcss.com/)
     - My go to quick css solution for small projects. Its a bit hard to read once you get out of the swing of things, but nothing beats its terseness.
   - [CSS Modules](https://github.com/css-modules/css-modules)
@@ -65,6 +65,9 @@ Future versions of the game will require log in and a backend to allow users to 
 - [ ] Should we save your chat history? What does returning to a suspect do?
 - [ ] Can you lose? What does [Give up] do?
 - [ ] How important is time (the exact time you speak to someone...)
+- [ ] What does success look like?
+- [ ] What does 100% aggravation do?
+- [ ] What does save case do?
 
 ## TODO
 
@@ -83,3 +86,5 @@ Future versions of the game will require log in and a backend to allow users to 
 - [ ] Rename \_api -> api once we want to use server side rendering
 - [x] Sketch out the db tables
 - [ ] Mobile lol
+- [ ] A home page
+- [ ] A case creator
