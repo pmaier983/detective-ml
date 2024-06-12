@@ -2,10 +2,10 @@ import "~/styles/globals.css"
 
 import { VT323 } from "next/font/google"
 
-import { TRPCReactProvider } from "~/trpc/react"
 import packageJson from "~/../package.json"
 
 import styles from "./layout.module.css"
+import { Providers } from "~/app/_state/providers"
 
 const vt323 = VT323({
   weight: "400",
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={vt323.className}>
       <body>
-        <TRPCReactProvider>
+        <Providers>
           <div className={styles.container}>
             <div className={styles.screenCase}>
               <div className={styles.screen}>{children}</div>
@@ -35,7 +35,7 @@ export default function RootLayout({
               </div>
             </div>
           </div>
-        </TRPCReactProvider>
+        </Providers>
       </body>
     </html>
   )

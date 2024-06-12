@@ -1,4 +1,5 @@
-import { createStore } from "zustand"
+import { createContext, useContext } from "react"
+import { createStore, useStore } from "zustand"
 import { devtools } from "zustand/middleware"
 
 export const MODES = {
@@ -19,7 +20,7 @@ export interface Suspect {
   prompt: string // TODO: the prompt might also be part of the chat log?
 }
 
-export interface GameStoreContent {
+export interface GameContent {
   mode: Mode
   case?: {
     caseId: string
@@ -29,21 +30,36 @@ export interface GameStoreContent {
   }
 }
 
-interface GameStoreActions {
+interface GameActions {
   restart: () => void
+
+  setGameMode: (mode: Mode) => void
 }
 
-export type gameStoreStore = GameStoreContent & GameStoreActions
+export type GameStore = GameContent & GameActions
 
-const initialGameStoreContent: GameStoreContent = {
+export const initialGameContent: GameContent = {
   mode: MODES.INTRO,
 }
 
-export const useGameStoreStore = createStore<gameStoreStore>()(
-  devtools((set) => ({
-    ...initialGameStoreContent,
-    restart: () => {
-      set(initialGameStoreContent)
-    },
-  })),
-)
+export const gameStore = createStore<GameStore>()((set) => ({
+  ...initialGameContent,
+  restart: () => {
+    set(initialGameContent)
+  },
+  setGameMode: (mode) => {
+    set({ mode })
+  },
+}))
+
+export const GameStoreContext = createContext<typeof gameStore | null>(null)
+
+type Selector<T> = (state: GameStore) => T
+
+export const useGameStore = <T>(selector: Selector<T>): T => {
+  const store = useContext(GameStoreContext)
+  if (!store) {
+    throw new Error("Missing GameStoreProvider")
+  }
+  return useStore(store, selector)
+}
