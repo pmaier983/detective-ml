@@ -6,6 +6,7 @@ interface IntroProps {
 }
 
 export const Intro = ({ title, description }: IntroProps) => {
+  // TODO setup the react context like this: https://github.com/pmndrs/zustand?tab=readme-ov-file#react-context
   return (
     <div className="flex flex-1 flex-col">
       <h2 className="text-center text-5xl">{title}</h2>

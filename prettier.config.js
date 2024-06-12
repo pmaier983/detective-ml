@@ -3,6 +3,6 @@ const config = {
   plugins: ["prettier-plugin-tailwindcss"],
   semi: false,
   trailingComma: "all",
-};
+}
 
-export default config;
+export default config

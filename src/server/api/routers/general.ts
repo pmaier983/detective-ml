@@ -1,3 +1,3 @@
-import { createTRPCRouter } from "~/server/api/trpc";
+import { createTRPCRouter } from "~/server/api/trpc"
 
-export const generalRouter = createTRPCRouter({});
+export const generalRouter = createTRPCRouter({})
