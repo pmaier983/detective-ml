@@ -1,16 +1,12 @@
-import { Intro } from "~/app/_components/screens/Intro"
-
-const TITLE = "The Case of the Cereal Killer"
-
-const DESCRIPTION =
-  'Sugarvale is in a heap of trouble! A breakfast-loving maniac, the "Cereal Killer," is leaving a trail of victims and their signature cereals. Can you sift through the suspects, a bowlful of flakes and braniacs, and decipher the cryptic cereal messages? Prepare for a case that\'s both chilling and a little nutty. Just bring your detective skills (and maybe some Tums).'
+import { redirect } from "next/navigation"
 
 export default async function Home() {
-  // TODO: Switch on the mode
+  // TODO: Setup a real home page, and avoid an immediate redirect to the first case
+  redirect("/case/1")
 
   return (
     <main className="flex flex-1 flex-col items-center justify-center">
-      <Intro title={TITLE} description={DESCRIPTION} />
+      Wait for it...
     </main>
   )
 }

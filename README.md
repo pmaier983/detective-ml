@@ -79,6 +79,8 @@ Future versions of the game will require log in and a backend to allow users to 
 - [ ] Get a Favicon
 - [ ] Add some music?
 - [ ] Add a good analytics platform
+- [ ] Create a NOT FOUND page (next.js special page)
+- [ ] Create a global error page (next.js special page)
 
 ## TODO (post-MVP)
 

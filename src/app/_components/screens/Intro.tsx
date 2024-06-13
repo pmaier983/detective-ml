@@ -1,6 +1,6 @@
 "use client"
 
-import { useGameStore } from "~/app/_state/gameStore"
+import { useCaseStore } from "~/app/_state/caseStore"
 
 interface IntroProps {
   title: string
@@ -8,8 +8,8 @@ interface IntroProps {
 }
 
 export const Intro = ({ title, description }: IntroProps) => {
-  const { setGameMode } = useGameStore((state) => ({
-    setGameMode: state.setGameMode,
+  const { setCaseMode } = useCaseStore((state) => ({
+    setCaseMode: state.setCaseMode,
   }))
 
   return (
@@ -21,10 +21,10 @@ export const Intro = ({ title, description }: IntroProps) => {
       <button
         className="text-center text-3xl"
         onClick={() => {
-          setGameMode("VIEWING")
+          setCaseMode("VIEWING")
         }}
       >
-        [Continue / Enter]
+        [Continue]
       </button>
     </div>
   )

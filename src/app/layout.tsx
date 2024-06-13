@@ -1,11 +1,7 @@
 import "~/styles/globals.css"
 
 import { VT323 } from "next/font/google"
-
-import packageJson from "~/../package.json"
-
-import styles from "./layout.module.css"
-import { Providers } from "~/app/_state/providers"
+import { GeneralProviders } from "~/app/_state/GeneralProviders"
 
 const vt323 = VT323({
   weight: "400",
@@ -26,16 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={vt323.className}>
       <body>
-        <Providers>
-          <div className={styles.container}>
-            <div className={styles.screenCase}>
-              <div className={styles.screen}>{children}</div>
-              <div className={styles.screenFooter}>
-                DetectiveML v{packageJson.version}
-              </div>
-            </div>
-          </div>
-        </Providers>
+        <GeneralProviders>{children}</GeneralProviders>
       </body>
     </html>
   )
