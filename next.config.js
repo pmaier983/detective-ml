@@ -9,6 +9,7 @@ const config = {
   // The MVP is a static site, we may need a server in the future though
   // https://nextjs.org/docs/app/building-your-application/deploying/static-exports
   output: "export",
+  images: { unoptimized: true },
 }
 
 export default config

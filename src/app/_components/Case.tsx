@@ -1,6 +1,7 @@
 "use client"
 
 import { Intro } from "~/app/_components/screens/Intro"
+import { Viewing } from "~/app/_components/screens/Viewing"
 import { useCaseStore } from "~/app/_state/caseStore"
 
 export const Case = () => {
@@ -13,7 +14,7 @@ export const Case = () => {
     case "INTRO":
       return <Intro description={intro} />
     case "VIEWING":
-      return <div>Viewing</div>
+      return <Viewing />
     case "TALKING":
       return <div>Talking</div>
     default:

@@ -9,6 +9,7 @@
   "suspects": [
     {
       "id": "1",
+      "colorHex": "#FEF3A0",
       "name": "Jane Cooper",
       "age": 29,
       "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_1.png",
@@ -18,6 +19,7 @@
     {
       "id": "2",
       "name": "Floyd Miles",
+      "colorHex": "#6A4DA9",
       "age": 18,
       "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_2.png",
       "caseId": "1",
@@ -25,6 +27,7 @@
     },
     {
       "id": "3",
+      "colorHex": "#436C7E",
       "name": "Albert Flores",
       "age": 32,
       "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_3.png",
@@ -33,6 +36,7 @@
     },
     {
       "id": "4",
+      "colorHex": "#312338",
       "name": "Devon Lane",
       "age": 43,
       "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_4.png",
@@ -41,6 +45,7 @@
     },
     {
       "id": "5",
+      "colorHex": "#7D899E",
       "name": "Ronald Richards",
       "age": 45,
       "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_5.png",

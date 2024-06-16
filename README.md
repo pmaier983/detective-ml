@@ -68,6 +68,7 @@ Future versions of the game will require log in and a backend to allow users to 
 - [ ] What does success look like?
 - [ ] What does 100% aggravation do?
 - [ ] What does save case do?
+- [ ] Why are the suspects drawn in different styles?
 
 ## TODO
 

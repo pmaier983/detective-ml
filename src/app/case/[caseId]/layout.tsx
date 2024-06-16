@@ -1,25 +1,23 @@
-"use client"
 import packageJson from "~/../package.json"
 
 import styles from "./layout.module.css"
 import { CaseProvider } from "~/app/_state/CaseProvider"
 import { CaseHeader } from "~/app/_components/CaseHeader"
 
-import { caseContentSchema } from "~/app/_state/caseStore"
 import case1 from "~/../public/case-1.json"
+import { caseContentSchema } from "~/app/_state/caseTypes"
 
-export default function CaseLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+const CaseLayout = async ({ children }: { children: React.ReactNode }) => {
   /* 
     TODO: in the future this is where we should fetch the case data
     & also setup some suspense loading. 
     For now we have just once case.
   */
+  // TODO: setup generateStaticParams for this page as well!
 
-  const currentCase = caseContentSchema.parse(case1)
+  const { data: currentCase, success } = caseContentSchema.safeParse(case1)
+
+  if (!success) throw new Error("Failed to parse case data")
 
   return (
     <CaseProvider initialCaseStateOverride={currentCase}>
@@ -37,3 +35,5 @@ export default function CaseLayout({
     </CaseProvider>
   )
 }
+
+export default CaseLayout
