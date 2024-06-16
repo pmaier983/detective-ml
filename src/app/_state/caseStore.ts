@@ -4,7 +4,6 @@ import { createStore, useStore } from "zustand"
 export const MODES = {
   VIEWING: "VIEWING",
   TALKING: "TALKING",
-  ACCUSING: "ACCUSING",
   INTRO: "INTRO",
 } as const
 

@@ -3,6 +3,7 @@ import packageJson from "~/../package.json"
 import styles from "./layout.module.css"
 import { type CaseContent } from "~/app/_state/caseStore"
 import { CaseProvider } from "~/app/_state/CaseProvider"
+import { CaseHeader } from "~/app/_components/CaseHeader"
 
 export default function CaseLayout({
   children,
@@ -32,7 +33,10 @@ export default function CaseLayout({
     <CaseProvider initialCaseStateOverride={currentCase}>
       <div className={styles.container}>
         <div className={styles.screenCase}>
-          <div className={styles.screen}>{children}</div>
+          <div className={styles.screen}>
+            <CaseHeader />
+            {children}
+          </div>
           <div className={styles.screenFooter}>
             DetectiveML v{packageJson.version}
           </div>

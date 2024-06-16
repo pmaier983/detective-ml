@@ -8,6 +8,8 @@
         "name": "next"
       }
     ],
+    "resolveJsonModule": true,
+
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
