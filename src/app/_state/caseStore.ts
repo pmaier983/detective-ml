@@ -1,4 +1,6 @@
+"use client"
 import { createContext, useContext } from "react"
+import { z } from "zod"
 import { createStore, useStore } from "zustand"
 
 export const MODES = {
@@ -9,28 +11,30 @@ export const MODES = {
 
 type Mode = (typeof MODES)[keyof typeof MODES]
 
-export interface Suspect {
-  id: string
-  name: string
-  age: number
-  image: string
-  chatLog: string[] // TODO: figure out the proper way to store the chat log
-  prompt: string // TODO: the prompt might also be part of the chat log?
-}
+export const suspectSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  age: z.number(),
+  imageUrl: z.string(),
+  chatLog: z.array(z.string()),
+})
 
-export interface CaseContent {
-  mode: Mode
+export type Suspect = z.infer<typeof suspectSchema>
 
-  title: string
-  intro: string
+export const caseContentSchema = z.object({
+  mode: z.nativeEnum(MODES),
 
-  caseId: string
+  title: z.string(),
+  intro: z.string(),
 
-  suspects: Suspect[]
-  suspectTalkingId?: string
+  caseId: z.string(),
 
-  whoDoneItId: string
-}
+  suspects: z.array(suspectSchema),
+
+  whoDoneItId: z.string(),
+})
+
+export type CaseContent = z.infer<typeof caseContentSchema>
 
 interface CaseActions {
   restart: () => void

@@ -1,0 +1,52 @@
+{
+  "mode": "INTRO",
+
+  "title": "The Case of the Cereal Killer",
+  "intro": "Sugarvale is in a heap of trouble! A breakfast-loving maniac, the \"Cereal Killer,\" is leaving a trail of victims and their signature cereals. Can you sift through the suspects, a bowlful of flakes and braniacs, and decipher the cryptic cereal messages? Prepare for a case that's both chilling and a little nutty. Just bring your detective skills (and maybe some Tums).",
+
+  "caseId": "1",
+
+  "suspects": [
+    {
+      "id": "1",
+      "name": "Jane Cooper",
+      "age": 29,
+      "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_1.png",
+      "caseId": "1",
+      "chatLog": []
+    },
+    {
+      "id": "2",
+      "name": "Floyd Miles",
+      "age": 18,
+      "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_2.png",
+      "caseId": "1",
+      "chatLog": []
+    },
+    {
+      "id": "3",
+      "name": "Albert Flores",
+      "age": 32,
+      "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_3.png",
+      "caseId": "1",
+      "chatLog": []
+    },
+    {
+      "id": "4",
+      "name": "Devon Lane",
+      "age": 43,
+      "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_4.png",
+      "caseId": "1",
+      "chatLog": []
+    },
+    {
+      "id": "5",
+      "name": "Ronald Richards",
+      "age": 45,
+      "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_5.png",
+      "caseId": "1",
+      "chatLog": []
+    }
+  ],
+  "whoDoneItId": "0"
+}

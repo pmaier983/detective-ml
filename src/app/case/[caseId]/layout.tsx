@@ -1,9 +1,12 @@
+"use client"
 import packageJson from "~/../package.json"
 
 import styles from "./layout.module.css"
-import { type CaseContent } from "~/app/_state/caseStore"
 import { CaseProvider } from "~/app/_state/CaseProvider"
 import { CaseHeader } from "~/app/_components/CaseHeader"
+
+import { caseContentSchema } from "~/app/_state/caseStore"
+import case1 from "~/../public/case-1.json"
 
 export default function CaseLayout({
   children,
@@ -16,18 +19,7 @@ export default function CaseLayout({
     For now we have just once case.
   */
 
-  const currentCase: CaseContent = {
-    mode: "INTRO",
-
-    title: "The Case of the Cereal Killer",
-    intro:
-      'Sugarvale is in a heap of trouble! A breakfast-loving maniac, the "Cereal Killer," is leaving a trail of victims and their signature cereals. Can you sift through the suspects, a bowlful of flakes and braniacs, and decipher the cryptic cereal messages? Prepare for a case that\'s both chilling and a little nutty. Just bring your detective skills (and maybe some Tums).',
-
-    caseId: "1",
-
-    suspects: [],
-    whoDoneItId: "0",
-  }
+  const currentCase = caseContentSchema.parse(case1)
 
   return (
     <CaseProvider initialCaseStateOverride={currentCase}>
