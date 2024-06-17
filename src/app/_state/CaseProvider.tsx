@@ -1,11 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import {
-  CaseStoreContext,
-  getCaseStore,
-  type CaseContent,
-} from "~/app/_state/caseStore"
+import { CaseStoreContext, getCaseStore } from "~/app/_state/caseStore"
+import type { CaseContent } from "~/app/_state/caseTypes"
 
 interface CaseProviderProps {
   children: React.ReactNode
