@@ -1,10 +1,14 @@
 import Image from "next/image"
+import type React from "react"
 import type { Suspect } from "~/app/_state/caseTypes"
 
-interface SuspectCardWrapperProps extends Suspect {
+import styles from "./SuspectCardWrapper.module.css"
+
+type SuspectCardWrapperProps = {
   children: React.ReactNode
   className?: string
-}
+} & Suspect &
+  React.ButtonHTMLAttributes<HTMLButtonElement>
 
 export const SuspectCardWrapper = ({
   children,
@@ -13,22 +17,28 @@ export const SuspectCardWrapper = ({
   textColorHex,
   name,
   className,
+  style,
+  ...rest
 }: SuspectCardWrapperProps) => {
   return (
     <button
-      className={`relative flex aspect-[215/324] h-auto flex-1 text-justify opacity-50 hover:opacity-100 ${className}`}
-      style={{ color: textColorHex }}
+      className={`relative w-full text-justify ${className}`}
+      style={{ color: textColorHex, ...style }}
+      {...rest}
     >
       <SuspectCardShapeWrapper colorHex={colorHex} />
-      <div className="absolute flex h-full w-full flex-1 flex-col p-2">
-        {children}
-        <div className="relative flex h-full w-full p-2">
-          <Image
-            src={imageUrl}
-            alt={`An image of ${name}, a suspect in the case`}
-            fill
-            objectFit="contain"
-          />
+      <div className={styles.cardContent}>
+        <div className="absolute top-0 flex h-full w-full flex-1 flex-col">
+          {children}
+          <div className="relative flex flex-1">
+            <Image
+              src={imageUrl}
+              alt={`An image of ${name}, a suspect in the case`}
+              fill
+              objectFit="contain"
+              className="h-auto w-auto"
+            />
+          </div>
         </div>
       </div>
     </button>
@@ -42,7 +52,7 @@ interface SuspectCardPreviewProps {
 export const SuspectCardShapeWrapper = ({
   colorHex,
 }: SuspectCardPreviewProps) => (
-  <svg viewBox="0 0 215 324" fill="none">
+  <svg viewBox={`0 0 215 324`} fill="none" preserveAspectRatio="none">
     <mask id="path-1-inside-1_3_605" fill="white">
       <path
         fill-rule="evenodd"

@@ -4,8 +4,9 @@ import { SuspectCard } from "~/app/_components/SuspectCard/SuspectCard"
 import { useCaseStore } from "~/app/_state/caseStore"
 
 export const Viewing = () => {
-  const { suspects } = useCaseStore((state) => ({
+  const { suspects, startTalkingToSuspect } = useCaseStore((state) => ({
     suspects: state.suspects,
+    startTalkingToSuspect: state.startTalkingToSuspect,
   }))
 
   return (
@@ -16,7 +17,9 @@ export const Viewing = () => {
             variant="PREVIEW"
             {...suspect}
             key={suspect.id}
-            className="h-1/2"
+            onClick={() => {
+              startTalkingToSuspect(suspect.id)
+            }}
           />
         ))}
       </div>

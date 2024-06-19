@@ -7,6 +7,7 @@ interface CaseActions {
   restart: () => void
 
   setCaseMode: (mode: CaseMode) => void
+  startTalkingToSuspect: (suspectId: string) => void
 }
 
 export type CaseStore = CaseContent & CaseActions
@@ -37,6 +38,9 @@ export const getCaseStore = ({
     },
     setCaseMode: (mode) => {
       set({ mode })
+    },
+    startTalkingToSuspect: (talkingSuspectId) => {
+      set({ mode: "TALKING", talkingSuspectId })
     },
   }))
 

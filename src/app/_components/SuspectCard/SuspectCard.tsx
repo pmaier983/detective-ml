@@ -1,28 +1,31 @@
+import type React from "react"
+
 import { SuspectCardFull } from "~/app/_components/SuspectCard/SuspectCardFull"
 import { SuspectCardPreview } from "~/app/_components/SuspectCard/SuspectCardPreview"
 import { SuspectCardWrapper } from "~/app/_components/SuspectCard/SuspectCardWrapper"
 import type { SuspectCardVariant } from "~/app/_components/SuspectCard/suspectCardTypes"
 import type { Suspect } from "~/app/_state/caseTypes"
 
-interface SuspectCardProps extends Suspect {
+type SuspectCardProps = {
   variant: SuspectCardVariant
   className?: string
-}
+} & Suspect &
+  React.ButtonHTMLAttributes<HTMLButtonElement>
 
 export const SuspectCard = (props: SuspectCardProps) => {
-  const { variant, ...suspect } = props
+  const { variant, ...rest } = props
 
   switch (variant) {
     case "PREVIEW":
       return (
         <SuspectCardWrapper {...props}>
-          <SuspectCardPreview {...suspect} />
+          <SuspectCardPreview {...rest} />
         </SuspectCardWrapper>
       )
     case "FULL":
       return (
         <SuspectCardWrapper {...props}>
-          <SuspectCardFull />
+          <SuspectCardFull {...rest} />
         </SuspectCardWrapper>
       )
     default:

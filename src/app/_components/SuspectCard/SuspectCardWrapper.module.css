@@ -1,0 +1,10 @@
+.cardContent {
+  --card-gutter: 1rem;
+
+  position: absolute;
+
+  left: var(--card-gutter);
+  top: var(--card-gutter);
+  width: calc(100% - (2 * var(--card-gutter)));
+  height: calc(100% - (2 * var(--card-gutter)));
+}

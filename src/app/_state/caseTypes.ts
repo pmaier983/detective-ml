@@ -35,6 +35,7 @@ export const caseContentSchema = z.object({
   suspects: z.array(suspectSchema),
 
   whoDoneItId: z.string(),
+  talkingSuspectId: z.string().optional(),
 })
 
 export type CaseContent = z.infer<typeof caseContentSchema>
