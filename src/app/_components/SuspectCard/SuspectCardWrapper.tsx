@@ -15,9 +15,9 @@ export const SuspectCardWrapper = ({
   className,
 }: SuspectCardWrapperProps) => {
   return (
-    <div
-      className={`relative flex flex-1 opacity-50 hover:opacity-100 ${className}`}
-      style={{ color: textColorHex } as React.CSSProperties}
+    <button
+      className={`relative flex aspect-[215/324] h-auto flex-1 text-justify opacity-50 hover:opacity-100 ${className}`}
+      style={{ color: textColorHex }}
     >
       <SuspectCardShapeWrapper colorHex={colorHex} />
       <div className="absolute flex h-full w-full flex-1 flex-col p-2">
@@ -31,7 +31,7 @@ export const SuspectCardWrapper = ({
           />
         </div>
       </div>
-    </div>
+    </button>
   )
 }
 
@@ -42,7 +42,7 @@ interface SuspectCardPreviewProps {
 export const SuspectCardShapeWrapper = ({
   colorHex,
 }: SuspectCardPreviewProps) => (
-  <svg viewBox="0 0 215 324" fill="none" preserveAspectRatio="slice">
+  <svg viewBox="0 0 215 324" fill="none">
     <mask id="path-1-inside-1_3_605" fill="white">
       <path
         fill-rule="evenodd"
