@@ -10,13 +10,13 @@ interface SuspectCardProps extends Suspect {
 }
 
 export const SuspectCard = (props: SuspectCardProps) => {
-  const { variant } = props
+  const { variant, ...suspect } = props
 
   switch (variant) {
     case "PREVIEW":
       return (
         <SuspectCardWrapper {...props}>
-          <SuspectCardPreview />
+          <SuspectCardPreview {...suspect} />
         </SuspectCardWrapper>
       )
     case "FULL":

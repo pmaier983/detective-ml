@@ -1,5 +1,8 @@
 # DetectiveML
 
+Frontend Deadline: July 4th
+Prompting Deadline: July 4th
+
 The goal of this repo is to create a detective game.
 
 Figma: https://www.figma.com/design/TmysmSpz3uZnoNAeYA01BZ/DetectiveML
@@ -61,14 +64,22 @@ Future versions of the game will require log in and a backend to allow users to 
 
 ## Questions
 
-- [ ] Whats on the back of the cards?
-- [ ] Should we save your chat history? What does returning to a suspect do?
+- [x] Whats on the back of the cards?
+  - See figma
+- [x] Should we save your chat history? What does returning to a suspect do?
+  - Yea. Avoid time
 - [ ] Can you lose? What does [Give up] do?
-- [ ] How important is time (the exact time you speak to someone...)
+  - TODO Noah
+- [x] How important is time (the exact time you speak to someone...)
+  - Don't care for MVP
 - [ ] What does success look like?
+  - TODO Noah
 - [ ] What does 100% aggravation do?
+  - Some new error screen? Disable the card?
 - [ ] What does save case do?
+  - Not MVP
 - [ ] Why are the suspects drawn in different styles?
+  - TODO Noah
 
 ## TODO
 
@@ -83,6 +94,7 @@ Future versions of the game will require log in and a backend to allow users to 
 - [ ] Create a NOT FOUND page (next.js special page)
 - [ ] Create a global error page (next.js special page)
 - [ ] Limit who can view the s3 bucket (currently is public read anyone)
+- [ ] Noah -> get us an api key (and set a max cash limited for said api key!)
 
 ## TODO (post-MVP)
 
