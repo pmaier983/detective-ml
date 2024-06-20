@@ -1,9 +1,8 @@
 "use client"
 
-import { SuspectCard } from "~/app/_components/SuspectCard/SuspectCard"
 import { Intro } from "~/app/_components/screens/Intro"
-import { Talking } from "~/app/_components/screens/Talking"
 import { Viewing } from "~/app/_components/screens/Viewing"
+import { Talking } from "~/app/_components/screens/talking/Talking"
 import { useCaseStore } from "~/app/_state/caseStore"
 
 export const Case = () => {

@@ -1,6 +1,8 @@
 "use client"
 
 import { SuspectCard } from "~/app/_components/SuspectCard/SuspectCard"
+import { TalkingBox } from "~/app/_components/screens/talking/TalkingBox"
+import { TalkingInformation } from "~/app/_components/screens/talking/TalkingInformation"
 import { useCaseStore } from "~/app/_state/caseStore"
 
 export const Talking = () => {
@@ -15,8 +17,12 @@ export const Talking = () => {
   if (!suspect) return null
 
   return (
-    <div className="flex flex-1 flex-col">
-      <SuspectCard variant="FULL" className="w-80" {...suspect} />
+    <div className="flex flex-1 items-center">
+      <div className="grid flex-1 grid-cols-3 flex-col items-center gap-2">
+        <SuspectCard variant="FULL" className="w" {...suspect} />
+        <TalkingBox />
+        <TalkingInformation />
+      </div>
     </div>
   )
 }
