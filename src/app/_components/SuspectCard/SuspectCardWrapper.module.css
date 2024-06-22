@@ -3,6 +3,9 @@
 
   position: absolute;
 
+  display: flex;
+  flex-direction: column;
+
   left: var(--card-gutter);
   top: var(--card-gutter);
   width: calc(100% - (2 * var(--card-gutter)));

@@ -17,9 +17,9 @@ export const Talking = () => {
   if (!suspect) return null
 
   return (
-    <div className="flex flex-1 items-center">
-      <div className="grid flex-1 grid-cols-3 flex-col items-center gap-2">
-        <SuspectCard variant="FULL" className="w" {...suspect} />
+    <div className="flex h-full flex-1 items-center">
+      <div className="flex h-full flex-1 items-center gap-2">
+        <SuspectCard variant="FULL" {...suspect} />
         <TalkingBox />
         <TalkingInformation />
       </div>

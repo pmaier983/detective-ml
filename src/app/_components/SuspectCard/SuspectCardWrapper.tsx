@@ -5,10 +5,11 @@ import type { Suspect } from "~/app/_state/caseTypes"
 import styles from "./SuspectCardWrapper.module.css"
 
 type SuspectCardWrapperProps = {
+  onClick: () => void
   children: React.ReactNode
   className?: string
 } & Suspect &
-  React.ButtonHTMLAttributes<HTMLButtonElement>
+  React.HTMLAttributes<HTMLDivElement>
 
 export const SuspectCardWrapper = ({
   children,
@@ -18,30 +19,40 @@ export const SuspectCardWrapper = ({
   name,
   className,
   style,
+  onClick,
   ...rest
 }: SuspectCardWrapperProps) => {
   return (
-    <button
-      className={`relative w-full text-justify ${className}`}
+    <div
+      className={`flex h-full w-auto flex-1 justify-center ${styles.buttonReset} `}
       style={{ color: textColorHex, ...style }}
       {...rest}
     >
-      <SuspectCardShapeWrapper colorHex={colorHex} />
-      <div className={styles.cardContent}>
-        <div className="absolute top-0 flex h-full w-full flex-1 flex-col">
-          {children}
-          <div className="relative flex flex-1">
-            <Image
-              src={imageUrl}
-              alt={`An image of ${name}, a suspect in the case`}
-              fill
-              objectFit="contain"
-              className="h-auto w-auto"
-            />
+      <div className="aspect-[214/324] w-auto max-w-full content-center">
+        {/* 
+          TODO: how to make this a button instead of a div with an onClick
+          Doing so (even with a reset) causes major issues for some reason 
+        */}
+        <div
+          className="relative aspect-[214/324] w-auto hover:cursor-pointer"
+          onClick={onClick}
+        >
+          <SuspectCardShapeWrapper colorHex={colorHex} />
+          <div className={`${styles.cardContent} ${className}`}>
+            {children}
+            <div className="relative flex flex-1">
+              <Image
+                src={imageUrl}
+                alt={`An image of ${name}, a suspect in the case`}
+                fill
+                objectFit="contain"
+                className=""
+              />
+            </div>
           </div>
         </div>
       </div>
-    </button>
+    </div>
   )
 }
 
@@ -52,6 +63,7 @@ interface SuspectCardPreviewProps {
 export const SuspectCardShapeWrapper = ({
   colorHex,
 }: SuspectCardPreviewProps) => (
+  // IMPORTANT: KEEP THIS ASPECT RATIO IN SYNC TOP LEVEL CARD CONTAINER
   <svg viewBox={`0 0 215 324`} fill="none" preserveAspectRatio="none">
     <mask id="path-1-inside-1_3_605" fill="white">
       <path
