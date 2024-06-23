@@ -10,7 +10,7 @@ type SuspectCardProps = {
   variant: SuspectCardVariant
   className?: string
 } & Suspect &
-  React.ButtonHTMLAttributes<HTMLButtonElement>
+  React.HTMLAttributes<HTMLDivElement>
 
 export const SuspectCard = (props: SuspectCardProps) => {
   const { variant, ...rest } = props

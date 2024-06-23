@@ -5,7 +5,6 @@ import type { Suspect } from "~/app/_state/caseTypes"
 import styles from "./SuspectCardWrapper.module.css"
 
 type SuspectCardWrapperProps = {
-  onClick: () => void
   children: React.ReactNode
   className?: string
 } & Suspect &

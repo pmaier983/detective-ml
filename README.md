@@ -83,6 +83,7 @@ Future versions of the game will require log in and a backend to allow users to 
 
 ## TODO
 
+- [ ] Configure [shadcn/ui](https://ui.shadcn.com/docs/installation/next) UI
 - [ ] Why do the images load so slowly in dev? Any way to speed this up without a server?
 - [x] purchase DetectiveML.com
 - [ ] configure deploy and website hosting
