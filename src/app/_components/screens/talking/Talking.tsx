@@ -1,6 +1,6 @@
 "use client"
 
-import { SuspectCard } from "~/app/_components/SuspectCard/SuspectCard"
+import { SuspectCard } from "~/app/_components/suspectCard/SuspectCard"
 import { TalkingBox } from "~/app/_components/screens/talking/TalkingBox"
 import { TalkingInformation } from "~/app/_components/screens/talking/TalkingInformation"
 import { useCaseStore } from "~/app/_state/caseStore"

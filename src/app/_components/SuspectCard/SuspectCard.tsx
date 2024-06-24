@@ -1,9 +1,9 @@
 import type React from "react"
 
-import { SuspectCardFull } from "~/app/_components/SuspectCard/SuspectCardFull"
-import { SuspectCardPreview } from "~/app/_components/SuspectCard/SuspectCardPreview"
-import { SuspectCardWrapper } from "~/app/_components/SuspectCard/SuspectCardWrapper"
-import type { SuspectCardVariant } from "~/app/_components/SuspectCard/suspectCardTypes"
+import { SuspectCardFull } from "~/app/_components/suspectCard/SuspectCardFull"
+import { SuspectCardPreview } from "~/app/_components/suspectCard/SuspectCardPreview"
+import { SuspectCardWrapper } from "~/app/_components/suspectCard/SuspectCardWrapper"
+import type { SuspectCardVariant } from "~/app/_components/suspectCard/suspectCardTypes"
 import type { Suspect } from "~/app/_state/caseTypes"
 
 type SuspectCardProps = {
