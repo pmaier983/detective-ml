@@ -17,9 +17,12 @@ export const Talking = () => {
   if (!suspect) return null
 
   return (
+    // TODO: turn the card aspect ratio into a reusable constant!
+    // An aspect ratio of 3x the card
     <div className="flex h-full flex-1 items-center">
-      <div className="flex h-full flex-1 items-center gap-2">
+      <div className="flex aspect-[624/324] h-auto flex-1 items-center gap-2">
         <SuspectCard variant="FULL" {...suspect} />
+        {/* Talking box needs a lower height  */}
         <TalkingBox />
         <TalkingInformation />
       </div>

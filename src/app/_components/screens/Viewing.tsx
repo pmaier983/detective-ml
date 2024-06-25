@@ -20,6 +20,7 @@ export const Viewing = () => {
             onClick={() => {
               startTalkingToSuspect(suspect.id)
             }}
+            className="opacity-50 hover:opacity-100"
           />
         ))}
       </div>

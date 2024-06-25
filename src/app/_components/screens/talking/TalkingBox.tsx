@@ -2,7 +2,11 @@
 
 import { useState } from "react"
 
-export const TalkingBox = () => {
+interface TalkingBoxProps {
+  className?: string
+}
+
+export const TalkingBox = ({ className }: TalkingBoxProps) => {
   const [talkingText, setTalkingText] = useState("")
 
   const onSubmit = () => {
@@ -11,7 +15,9 @@ export const TalkingBox = () => {
   }
 
   return (
-    <div className="flex h-full flex-1 flex-col border-4 border-white/10">
+    <div
+      className={`box-content flex h-[calc(100%-4px)] flex-1 flex-col border-4 border-white/10 ${className}`}
+    >
       <div className="flex flex-1 flex-col-reverse overflow-y-auto">
         Messages
       </div>

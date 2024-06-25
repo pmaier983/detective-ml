@@ -23,7 +23,7 @@ export const SuspectCardWrapper = ({
 }: SuspectCardWrapperProps) => {
   return (
     <div
-      className={`flex h-full w-auto flex-1 justify-center ${styles.buttonReset} `}
+      className={`flex h-full w-auto flex-1 justify-center ${styles.buttonReset}`}
       style={{ color: textColorHex, ...style }}
       {...rest}
     >
@@ -33,11 +33,11 @@ export const SuspectCardWrapper = ({
           Doing so (even with a reset) causes major issues for some reason 
         */}
         <div
-          className="relative aspect-[214/324] w-auto hover:cursor-pointer"
+          className={`relative aspect-[214/324] w-auto hover:cursor-pointer ${className}`}
           onClick={onClick}
         >
           <SuspectCardShapeWrapper colorHex={colorHex} />
-          <div className={`${styles.cardContent} ${className}`}>
+          <div className={styles.cardContent}>
             {children}
             <div className="relative flex flex-1">
               <Image
