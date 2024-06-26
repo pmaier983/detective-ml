@@ -16,7 +16,7 @@ export const TalkingBox = ({ className }: TalkingBoxProps) => {
 
   return (
     <div
-      className={`box-content flex h-[calc(100%-4px)] flex-1 flex-col border-4 border-white/10 ${className}`}
+      className={`flex h-full flex-1 flex-col border-4 border-white/10 ${className}`}
     >
       <div className="flex flex-1 flex-col-reverse overflow-y-auto">
         Messages
