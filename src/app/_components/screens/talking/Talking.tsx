@@ -20,7 +20,7 @@ export const Talking = () => {
     // TODO: turn the card aspect ratio into a reusable constant!
     // An aspect ratio of 3x the card
     <div className="flex h-full flex-1 items-center">
-      <div className="flex aspect-[624/324] h-auto flex-1 items-center gap-2">
+      <div className="flex aspect-[624/324] h-auto max-h-full flex-1 items-center gap-2 p-5">
         <SuspectCard variant="FULL" {...suspect} />
         {/* Talking box needs a lower height  */}
         <TalkingBox />
