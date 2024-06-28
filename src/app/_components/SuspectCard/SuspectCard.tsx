@@ -2,7 +2,6 @@ import type React from "react"
 
 import { SuspectCardFull } from "~/app/_components/suspectCard/SuspectCardFull"
 import { SuspectCardPreview } from "~/app/_components/suspectCard/SuspectCardPreview"
-import { SuspectCardWrapper } from "~/app/_components/suspectCard/SuspectCardWrapper"
 import type { SuspectCardVariant } from "~/app/_components/suspectCard/suspectCardTypes"
 import type { Suspect } from "~/app/_state/caseTypes"
 
@@ -17,17 +16,9 @@ export const SuspectCard = (props: SuspectCardProps) => {
 
   switch (variant) {
     case "PREVIEW":
-      return (
-        <SuspectCardWrapper {...props}>
-          <SuspectCardPreview {...rest} />
-        </SuspectCardWrapper>
-      )
+      return <SuspectCardPreview {...props} />
     case "FULL":
-      return (
-        <SuspectCardWrapper {...props}>
-          <SuspectCardFull {...rest} />
-        </SuspectCardWrapper>
-      )
+      return <SuspectCardFull {...props} />
     default:
       console.error("Invalid SuspectCard Variant", variant)
       return null
