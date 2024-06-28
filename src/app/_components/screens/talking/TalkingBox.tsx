@@ -40,7 +40,7 @@ export const TalkingBox = ({ className, suspectName }: TalkingBoxProps) => {
           onValueChange={setInteractionMethod}
         />
         <textarea
-          className="color-b h-[1.5rem] w-full bg-black p-2"
+          className="color-b h-[1.5rem] w-full overflow-hidden bg-black p-2"
           value={talkingText}
           placeholder={(() => {
             switch (interactionMethod) {
