@@ -80,6 +80,7 @@ Future versions of the game will require log in and a backend to allow users to 
   - Not MVP
 - [ ] Why are the suspects drawn in different styles?
   - TODO Noah
+- [ ] How does the overflow logic work for the textbox?
 
 ## TODO
 

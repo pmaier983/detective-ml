@@ -4,6 +4,10 @@ import { SuspectCard } from "~/app/_components/suspectCard/SuspectCard"
 import { TalkingBox } from "~/app/_components/screens/talking/TalkingBox"
 import { TalkingInformation } from "~/app/_components/screens/talking/TalkingInformation"
 import { useCaseStore } from "~/app/_state/caseStore"
+import {
+  ASPECT_RATIO_HEIGHT,
+  ASPECT_RATIO_WIDTH,
+} from "~/app/_components/suspectCard/SuspectCardWrapper"
 
 export const Talking = () => {
   const { talkingSuspectId, suspects } = useCaseStore((state) => ({
@@ -17,13 +21,17 @@ export const Talking = () => {
   if (!suspect) return null
 
   return (
-    // TODO: turn the card aspect ratio into a reusable constant!
     // An aspect ratio of 3x the card
     <div className="flex h-full flex-1 items-center">
-      <div className="flex aspect-[624/324] h-auto max-h-full flex-1 items-center gap-2 p-5">
+      <div
+        className={`flex h-auto max-h-full flex-1 items-center gap-2 p-5`}
+        // TODO: how to move this aspect ratio into tailwind?
+        style={{
+          aspectRatio: `${ASPECT_RATIO_WIDTH * 3}/${ASPECT_RATIO_HEIGHT}`,
+        }}
+      >
         <SuspectCard variant="FULL" {...suspect} />
-        {/* Talking box needs a lower height  */}
-        <TalkingBox />
+        <TalkingBox suspectName={suspect.name} />
         <TalkingInformation />
       </div>
     </div>
