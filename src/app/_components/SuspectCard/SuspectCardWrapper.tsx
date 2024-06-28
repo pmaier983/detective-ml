@@ -9,6 +9,7 @@ export const ASPECT_RATIO_HEIGHT = 324
 
 type SuspectCardWrapperProps = {
   children: React.ReactNode
+  hasSuspectPhoto?: boolean
   className?: string
 } & Suspect &
   React.HTMLAttributes<HTMLDivElement>
@@ -19,6 +20,7 @@ export const SuspectCardWrapper = ({
   colorHex,
   textColorHex,
   name,
+  hasSuspectPhoto = true,
   className,
   style,
   onClick,
@@ -39,7 +41,7 @@ export const SuspectCardWrapper = ({
           Doing so (even with a reset) causes major issues for some reason 
         */}
         <div
-          className={`relative w-auto hover:cursor-pointer ${className}`}
+          className={`relative w-auto ${className}`}
           onClick={onClick}
           style={{
             aspectRatio: `${ASPECT_RATIO_WIDTH}/${ASPECT_RATIO_HEIGHT}`,
@@ -48,7 +50,12 @@ export const SuspectCardWrapper = ({
           <SuspectCardShapeWrapper colorHex={colorHex} />
           <div className={styles.cardContent}>
             {children}
-            <div className="relative flex flex-1">
+            <div
+              className="relative z-0 flex flex-1"
+              style={{
+                display: hasSuspectPhoto ? "auto" : "none",
+              }}
+            >
               <Image
                 src={imageUrl}
                 alt={`An image of ${name}, a suspect in the case`}
