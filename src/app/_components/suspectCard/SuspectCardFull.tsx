@@ -43,14 +43,12 @@ export const SuspectCardFull = (suspect: Suspect) => {
           }
         >
           <SuspectCardWrapper {...suspect}>
-            <div className="z-10 flex flex-col gap-0 leading-4 md:pl-1 md:pt-1 lg:pl-3 lg:pt-3 lg:text-2xl xl:text-3xl">
-              <h4>{suspect.name}</h4>
-              <span className="text-sm lg:text-lg xl:text-xl">
-                Age: {suspect.age}
-              </span>
+            <div className="z-10 flex flex-col gap-0 text-sm leading-4 lg:text-xl xl:text-2xl">
+              <h4 className="lg:text-4xl xl:text-5xl">{suspect.name}</h4>
+              <span>Age: {suspect.age}</span>
               <Button
                 onClick={toggleIsFlipped}
-                className="absolute bottom-0 right-0 text-base"
+                className="absolute bottom-0 right-0 text-sm lg:text-xl xl:text-2xl"
               >
                 Flip Card
               </Button>
@@ -60,6 +58,14 @@ export const SuspectCardFull = (suspect: Suspect) => {
         <div className={styles.cardBack}>
           <SuspectCardWrapper {...suspect} hasSuspectPhoto={false}>
             <div className="z-10">
+              <h4>{suspect.name}</h4>
+              <ul className="pl-4">
+                {suspect.facts.map((fact) => (
+                  <li key={fact} className="list-disc">
+                    {fact}
+                  </li>
+                ))}
+              </ul>
               <Button
                 onClick={toggleIsFlipped}
                 className="absolute bottom-0 right-0 text-base"

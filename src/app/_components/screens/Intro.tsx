@@ -18,6 +18,7 @@ export const Intro = ({ description }: IntroProps) => {
         {description}
       </p>
       <Button
+        className="text-xl"
         onClick={() => {
           setCaseMode("VIEWING")
         }}

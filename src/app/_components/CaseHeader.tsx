@@ -17,12 +17,16 @@ export const CaseHeader = () => {
       <div className="flex flex-1 items-center">
         <Button onClick={() => setCaseMode("INTRO")}>Exit</Button>
       </div>
-      <h2 className="text-center text-4xl">{title}</h2>
+      <h2 className="text-center text-3xl">{title}</h2>
       <div className="flex flex-1 items-center justify-end gap-4">
         {mode === "TALKING" && (
           <>
-            <Button onClick={() => console.log("TODO")}>Give Up</Button>
-            <Button onClick={() => console.log("TODO")}>Make Accusation</Button>
+            <Button onClick={() => console.log("TODO")} className="text-xl">
+              Give Up
+            </Button>
+            <Button onClick={() => console.log("TODO")} className="text-xl">
+              Make Accusation
+            </Button>
           </>
         )}
       </div>

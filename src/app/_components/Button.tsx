@@ -3,12 +3,9 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button = ({ children, className, ...rest }: ButtonProps) => (
-  <button
-    {...rest}
-    className={`active: group text-center text-xl ${className}`}
-  >
+  <button {...rest} className={`active:group text-center ${className}`}>
     <span>[</span>
-    <span className="group-hover:underline group-active:decoration-double">
+    <span className="text-inherit group-hover:underline group-active:decoration-double">
       {children}
     </span>
     <span>]</span>
