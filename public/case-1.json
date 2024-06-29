@@ -1,10 +1,12 @@
 {
-  "mode": "INTRO",
+  "mode": "TALKING",
+
+  "talkingSuspectId": "1",
 
   "title": "The Case of the Cereal Killer",
   "intro": "Sugarvale is in a heap of trouble! A breakfast-loving maniac, the \"Cereal Killer,\" is leaving a trail of victims and their signature cereals. Can you sift through the suspects, a bowlful of flakes and braniacs, and decipher the cryptic cereal messages? Prepare for a case that's both chilling and a little nutty. Just bring your detective skills (and maybe some Tums).",
 
-  "caseId": "1",
+  "id": "1",
 
   "suspects": [
     {
@@ -15,7 +17,13 @@
       "age": 29,
       "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_1.png",
       "caseId": "1",
-      "chatLog": []
+      "facts": [
+        "Was the victim's best friend",
+        "Seen leaving the crime scene within the murder window.",
+        "Works as a lawyer",
+        "Dating Jane Cooper for 4 years. Not married.",
+        "1 prior for aggravated assault on a minor"
+      ]
     },
     {
       "id": "2",
@@ -25,7 +33,12 @@
       "age": 18,
       "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_2.png",
       "caseId": "1",
-      "chatLog": []
+      "facts": [
+        "Recently had a heated argument with the victim",
+        "Seen at the crime scene around the time of the murder",
+        "Works as a software engineer",
+        "Victim's colleague for 3 years"
+      ]
     },
     {
       "id": "3",
@@ -35,7 +48,12 @@
       "age": 32,
       "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_3.png",
       "caseId": "1",
-      "chatLog": []
+      "facts": [
+        "Victim's ex-partner",
+        "Has no alibi for the night of the murder",
+        "Recently lost her job",
+        "Was seen loitering near the victim's house"
+      ]
     },
     {
       "id": "4",
@@ -45,7 +63,12 @@
       "age": 43,
       "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_4.png",
       "caseId": "1",
-      "chatLog": []
+      "facts": [
+        "Neighbor who reported strange noises from the victim's house",
+        "Has a history of petty theft",
+        "Claimed to have seen a shadowy figure leaving the house",
+        "Works as a security guard"
+      ]
     },
     {
       "id": "5",
@@ -55,7 +78,12 @@
       "age": 45,
       "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_5.png",
       "caseId": "1",
-      "chatLog": []
+      "facts": [
+        "Victim's business partner",
+        "Was out of town but returned unexpectedly the night of the murder",
+        "Has a clean record",
+        "Likes trees, no cap"
+      ]
     }
   ],
   "whoDoneItId": "0"

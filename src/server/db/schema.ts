@@ -1,4 +1,5 @@
-import { relations, sql } from "drizzle-orm"
+import { relations, sql, type InferSelectModel } from "drizzle-orm"
+import { createInsertSchema } from "drizzle-zod"
 import {
   index,
   integer,
@@ -21,8 +22,11 @@ export const createTable = pgTableCreator((name) => `detective-ml_${name}`)
 export const cases = createTable("case", {
   id: varchar("id", { length: 255 }).notNull().primaryKey(),
   title: varchar("title", { length: 255 }).notNull(),
-  description: text("description").notNull(),
+  intro: text("intro").notNull(),
+  whoDoneItId: varchar("whoDoneItId", { length: 255 }).notNull(),
 })
+export type DbCase = InferSelectModel<typeof cases>
+export const dbCaseSchema = createInsertSchema(cases)
 
 export const casesRelations = relations(cases, ({ many }) => ({
   suspects: many(suspects),
@@ -37,11 +41,28 @@ export const suspects = createTable("suspect", {
   caseId: varchar("caseId", { length: 255 })
     .notNull()
     .references(() => cases.id),
-  prompt: text("prompt").notNull(),
 })
+export type DbSuspect = InferSelectModel<typeof suspects>
+export const dbSuspectSchema = createInsertSchema(suspects)
 
 export const suspectsRelations = relations(suspects, ({ one }) => ({
   case: one(cases, { fields: [suspects.caseId], references: [cases.id] }),
+  facts: one(suspectFacts, {
+    fields: [suspects.id],
+    references: [suspectFacts.suspectId],
+  }),
+}))
+
+export const suspectFacts = createTable("suspectFact", {
+  id: varchar("id", { length: 255 }).notNull().primaryKey(),
+  suspectId: varchar("suspectId", { length: 255 })
+    .notNull()
+    .references(() => suspects.id),
+  fact: text("fact").notNull(),
+})
+
+export const suspectFactsRelations = relations(suspectFacts, ({ many }) => ({
+  suspects: many(suspectFacts),
 }))
 
 /****************************** DEFAULT NEXT_AUTH STUFF *****************************************/

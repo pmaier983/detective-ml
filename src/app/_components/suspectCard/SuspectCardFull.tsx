@@ -4,10 +4,10 @@ import { motion } from "framer-motion"
 import { useCallback, useState } from "react"
 
 import { SuspectCardWrapper } from "~/app/_components/suspectCard/SuspectCardWrapper"
-import type { Suspect } from "~/app/_state/caseTypes"
 
 import styles from "./SuspectCardFull.module.css"
 import { Button } from "~/app/_components/Button"
+import type { Suspect } from "~/app/_state/caseTypes"
 
 const FLIP_ANIMATION_DURATION = 0.3
 
@@ -60,7 +60,6 @@ export const SuspectCardFull = (suspect: Suspect) => {
         <div className={styles.cardBack}>
           <SuspectCardWrapper {...suspect} hasSuspectPhoto={false}>
             <div className="z-10">
-              Card Back TODO
               <Button
                 onClick={toggleIsFlipped}
                 className="absolute bottom-0 right-0 text-base"

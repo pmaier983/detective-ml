@@ -2,11 +2,11 @@
 
 import { useState } from "react"
 import { CaseStoreContext, getCaseStore } from "~/app/_state/caseStore"
-import type { CaseContent } from "~/app/_state/caseTypes"
+import type { Case } from "~/app/_state/caseTypes"
 
 interface CaseProviderProps {
   children: React.ReactNode
-  initialCaseStateOverride: Partial<CaseContent>
+  initialCaseStateOverride: Partial<Case>
 }
 
 export const CaseProvider = ({

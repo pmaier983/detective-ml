@@ -1,7 +1,7 @@
 "use client"
 import { createContext, useContext } from "react"
 import { createStore, useStore } from "zustand"
-import type { CaseContent, CaseMode } from "~/app/_state/caseTypes"
+import type { Case, CaseMode } from "~/app/_state/caseTypes"
 
 interface CaseActions {
   restart: () => void
@@ -9,6 +9,8 @@ interface CaseActions {
   setCaseMode: (mode: CaseMode) => void
   startTalkingToSuspect: (suspectId: string) => void
 }
+
+type CaseContent = Case
 
 export type CaseStore = CaseContent & CaseActions
 
@@ -18,7 +20,7 @@ export const initialCaseContent: CaseContent = {
   title: "Dummy Title",
   intro: "This case should never be seen due to suspense boundaries...",
 
-  caseId: "0",
+  id: "0",
 
   suspects: [],
 

@@ -1,8 +1,8 @@
 import Image from "next/image"
 import type React from "react"
-import type { Suspect } from "~/app/_state/caseTypes"
 
 import styles from "./SuspectCardWrapper.module.css"
+import type { Suspect } from "~/app/_state/caseTypes"
 
 export const ASPECT_RATIO_WIDTH = 214
 export const ASPECT_RATIO_HEIGHT = 324
