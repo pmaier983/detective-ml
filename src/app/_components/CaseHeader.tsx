@@ -15,7 +15,7 @@ export const CaseHeader = () => {
   return (
     <div className="flex">
       <div className="flex flex-1 items-center">
-        <Button onClick={() => setCaseMode("INTRO")}>Exit</Button>
+        <Button onClick={() => setCaseMode("INTRO")} className="text-xl">Exit</Button>
       </div>
       <h2 className="text-center text-3xl">{title}</h2>
       <div className="flex flex-1 items-center justify-end gap-4">

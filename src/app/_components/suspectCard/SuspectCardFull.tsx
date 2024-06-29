@@ -57,10 +57,11 @@ export const SuspectCardFull = (suspect: Suspect) => {
         </div>
         <div className={styles.cardBack}>
           <SuspectCardWrapper {...suspect} hasSuspectPhoto={false}>
-            <div className="z-10">
-              <h4>{suspect.name}</h4>
-              <ul className="pl-4">
+            <div className="z-10 text-sm lg:text-xl xl:text-2xl">
+              <h4 className="lg:text-4xl xl:text-5xl">{suspect.name}</h4>
+              <ul className="flex flex-col gap-1 pl-4">
                 {suspect.facts.map((fact) => (
+                  // TODO: this should technically not be a disc, but should instead be a square thing...
                   <li key={fact} className="list-disc">
                     {fact}
                   </li>
@@ -68,7 +69,7 @@ export const SuspectCardFull = (suspect: Suspect) => {
               </ul>
               <Button
                 onClick={toggleIsFlipped}
-                className="absolute bottom-0 right-0 text-base"
+                className="absolute bottom-0 right-0"
               >
                 Flip Card
               </Button>
