@@ -12,7 +12,7 @@ type SuspectCardProps = {
   React.HTMLAttributes<HTMLDivElement>
 
 export const SuspectCard = (props: SuspectCardProps) => {
-  const { variant, ...rest } = props
+  const { variant } = props
 
   switch (variant) {
     case "PREVIEW":
