@@ -27,7 +27,9 @@ export const TalkingInformation = ({
           }
         />
       </div>
-      <div className="flex flex-1 border-4 border-white/10">Notes</div>
+      <div className="flex flex-1 items-center border-4 border-white/10 p-3 text-center">
+        Yo Noah, idk how the adding note flow should work...
+      </div>
     </div>
   )
 }
