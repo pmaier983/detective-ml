@@ -5,9 +5,22 @@ import { useQuery } from "@tanstack/react-query"
 import { generateId, generateObject, type Message } from "ai"
 import { useAtom } from "jotai"
 import { useEffect, useState, type FormEvent } from "react"
-import SuperJSON from "superjson"
 import { z } from "zod"
 import { interactionMethodAtom } from "~/app/_state/atoms"
+
+export const findLastMessageWithData = (messages: Message[]) => {
+  return messages.filter(isMessageWithData).slice(-1).pop()
+}
+
+interface MessageWithData extends Omit<Message, "data"> {
+  data: MessageData
+}
+
+export const isMessageWithData = (
+  message: Message,
+): message is MessageWithData => {
+  return messageDataSchema.safeParse(message.data).success
+}
 
 export const messageDataSchema = z.object({
   text: z.string(),
@@ -24,18 +37,19 @@ const openai = createOpenAI({
 })
 
 interface UseChatProps {
-  system: string
+  system?: string
+  id: string
 }
 
 // This is built to mimic https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-chat
 // We should probably transition to using the SDK when we setup a FE Server
-export const useChat = ({ system }: UseChatProps) => {
+export const useChat = ({ system, id }: UseChatProps) => {
   const [interactionMethod] = useAtom(interactionMethodAtom)
   const [input, setInput] = useState<string>("")
   const [messages, setMessages] = useState<Message[]>([])
 
   const { data, isFetching, refetch } = useQuery({
-    queryKey: ["talking"],
+    queryKey: ["chat", id],
     queryFn: async () => {
       return generateObject({
         model: openai("gpt-3.5-turbo"),

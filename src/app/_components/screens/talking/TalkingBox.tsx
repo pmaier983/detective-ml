@@ -5,6 +5,8 @@ import { useAtom } from "jotai"
 
 import { InteractionMethodSelect } from "~/app/_components/screens/talking/InteractionMethodSelect"
 import {
+  findLastMessageWithData,
+  isMessageWithData,
   messageDataSchema,
   useChat,
   type MessageData,
@@ -13,14 +15,6 @@ import { interactionMethodAtom } from "~/app/_state/atoms"
 
 import styles from "./TalkingBox.module.css"
 import { useEffect, useRef } from "react"
-
-interface MessageWithData extends Omit<Message, "data"> {
-  data: MessageData
-}
-
-const isMessageWithData = (message: Message): message is MessageWithData => {
-  return messageDataSchema.safeParse(message.data).success
-}
 
 interface TalkingBoxProps {
   className?: string
@@ -38,6 +32,7 @@ export const TalkingBox = ({
   const { messages, isLoading, input, handleInputChange, handleSubmit } =
     useChat({
       system: `Talk to ${suspectName}`,
+      id: suspectName,
     })
 
   const onSubmit = () => {
@@ -49,9 +44,7 @@ export const TalkingBox = ({
     scrollAreaEndDivRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages])
 
-  const mostRecentToolMessage = messages
-    .filter(isMessageWithData)
-    .find((message) => message.role === "tool")
+  const mostRecentToolMessage = findLastMessageWithData(messages)
 
   return (
     <div

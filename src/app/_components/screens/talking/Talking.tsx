@@ -24,7 +24,7 @@ export const Talking = () => {
     // An aspect ratio of 3x the card
     <div className="flex h-full flex-1 items-center">
       <div
-        className={`flex h-auto max-h-full flex-1 items-center gap-2 p-5`}
+        className={`flex h-auto max-h-full max-w-full flex-1 items-center gap-2 p-5`}
         // TODO: how to move this aspect ratio into tailwind?
         style={{
           aspectRatio: `${ASPECT_RATIO_WIDTH * 3}/${ASPECT_RATIO_HEIGHT}`,
@@ -35,7 +35,7 @@ export const Talking = () => {
           suspectName={suspect.name}
           suspectMainColor={suspect.colorHex}
         />
-        <TalkingInformation />
+        <TalkingInformation suspectName={suspect.name} />
       </div>
     </div>
   )
