@@ -81,6 +81,12 @@ Future versions of the game will require log in and a backend to allow users to 
 - [ ] Why are the suspects drawn in different styles?
   - TODO Noah
 - [ ] How does the overflow logic work for the textbox?
+- [ ] To allow us to properly color the card we probably to do one of the following:
+  - [ ] Make a box around the picture and pull out the most vibrant color
+  - [ ] Try and hope we get the most common color using something like colorthief
+  - [ ] Mask the profile from the background... this is probably out of scope for an MVP
+- [ ] How does the "Add Note" Functionality work?
+- [ ] We also need a talking loading state
 
 ## TODO
 
@@ -91,13 +97,18 @@ Future versions of the game will require log in and a backend to allow users to 
   - [ ] Decide on s3 vs. cloudflare & configure site -> static code
   - [ ] Document how to deploy easily (ideally just a package.json script)
 - [x] Setup the proper font
+- [ ] Setup proper error handling for talking
 - [ ] Get a Favicon
 - [ ] Add some music?
 - [ ] Add a good analytics platform
 - [ ] Create a NOT FOUND page (next.js special page)
 - [ ] Create a global error page (next.js special page)
 - [ ] Limit who can view the s3 bucket (currently is public read anyone)
-- [ ] Noah -> get us an api key (and set a max cash limited for said api key!)
+- [x] Noah -> get us an api key (and set a max cash limited for said api key!)
+- [ ] Move the api call to the nextjs api (and move the api key to be hidden as well!)
+- [ ] It might be good to start thinking about how we want people to configure cases
+  - [ ] Case creation page
+  - [ ] Case viewing space
 
 ## TODO (post-MVP)
 
