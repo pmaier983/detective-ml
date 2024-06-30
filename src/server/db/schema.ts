@@ -34,6 +34,7 @@ export const casesRelations = relations(cases, ({ many }) => ({
 
 export const suspects = createTable("suspect", {
   id: varchar("id", { length: 255 }).notNull().primaryKey(),
+  // TODO: add first name and last name and migrate this to fullName
   name: varchar("name", { length: 255 }).notNull(),
   age: integer("age").notNull(),
   // TODO: figure out the proper type for an image url.

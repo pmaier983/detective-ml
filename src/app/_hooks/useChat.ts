@@ -34,7 +34,7 @@ export const useChat = ({ system }: UseChatProps) => {
   const [input, setInput] = useState<string>("")
   const [messages, setMessages] = useState<Message[]>([])
 
-  const { data, isPending, refetch } = useQuery({
+  const { data, isFetching, refetch } = useQuery({
     queryKey: ["talking"],
     queryFn: async () => {
       return generateObject({
@@ -62,8 +62,7 @@ export const useChat = ({ system }: UseChatProps) => {
       createdAt: new Date(),
       content: data.object.text,
       role: "tool",
-      // TODO: is there a better way to do this?
-      data: SuperJSON.parse(SuperJSON.stringify(data)),
+      data: data.object,
     } as Message
 
     setMessages((prev) => [...prev, message])
@@ -74,8 +73,7 @@ export const useChat = ({ system }: UseChatProps) => {
       | React.ChangeEvent<HTMLTextAreaElement>
       | React.ChangeEvent<HTMLInputElement>,
   ) => {
-    if (e.target.value === "") return
-    setInput(e.target.value)
+    setInput(e.target.value ?? "")
   }
 
   const handleSubmit = (e?: FormEvent<HTMLFormElement>) => {
@@ -99,7 +97,7 @@ export const useChat = ({ system }: UseChatProps) => {
   return {
     messages,
     input,
-    isLoading: isPending,
+    isLoading: isFetching,
     handleInputChange,
     handleSubmit,
   }
