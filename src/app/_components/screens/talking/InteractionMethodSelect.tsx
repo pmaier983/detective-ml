@@ -1,3 +1,6 @@
+import { useAtom } from "jotai"
+import { z } from "zod"
+
 import {
   Select,
   SelectContent,
@@ -5,6 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/app/_components/ui/select"
+import { interactionMethodAtom } from "~/app/_state/atoms"
 
 export const INTERACTION_METHODS = {
   TALK: "TALK",
@@ -16,17 +20,32 @@ export type InteractionMethod =
 
 interface InteractionMethodSelectProps {
   className?: string
-  value: InteractionMethod
-  onValueChange: (value: InteractionMethod) => void
 }
 
 export const InteractionMethodSelect = ({
-  value,
-  onValueChange,
   className,
 }: InteractionMethodSelectProps) => {
+  const [interactionMethod, setInteractionMethod] = useAtom(
+    interactionMethodAtom,
+  )
+
   return (
-    <Select value={value} onValueChange={onValueChange}>
+    <Select
+      value={interactionMethod}
+      onValueChange={(newInteractionMethod) => {
+        // Ensure the new value is a valid interaction method
+        const { success, data } = z
+          .nativeEnum(INTERACTION_METHODS)
+          .safeParse(newInteractionMethod)
+
+        if (!success) {
+          console.error(`Invalid interaction method: ${newInteractionMethod}`)
+          return
+        }
+
+        setInteractionMethod(data)
+      }}
+    >
       <SelectTrigger className={`${className}`}>
         <SelectValue placeholder={INTERACTION_METHODS.TALK} />
       </SelectTrigger>

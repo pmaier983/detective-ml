@@ -60,12 +60,16 @@ export const SuspectCardFull = (suspect: Suspect) => {
             <div className="z-10 text-sm lg:text-xl xl:text-2xl">
               <h4 className="lg:text-4xl xl:text-5xl">{suspect.name}</h4>
               <ul className="flex flex-col gap-1 pl-4">
-                {suspect.facts.map((fact) => (
-                  // TODO: this should technically not be a disc, but should instead be a square thing...
-                  <li key={fact} className="list-disc">
-                    {fact}
-                  </li>
-                ))}
+                {suspect.facts.map((fact) => {
+                  // TODO: Add links for names in facts
+
+                  return (
+                    // TODO: this should technically not be a disc, but should instead be a square thing...
+                    <li key={fact} className="list-disc">
+                      {fact}
+                    </li>
+                  )
+                })}
               </ul>
               <Button
                 onClick={toggleIsFlipped}
