@@ -6,16 +6,15 @@ import { useCaseStore } from "~/app/_state/caseStore"
 // Should I be using some weird Next.js layout stuff instead?
 // We can create layered layout to show the different states?
 export const CaseHeader = () => {
-  const { setCaseMode, title, mode } = useCaseStore((state) => ({
+  const { title, mode } = useCaseStore((state) => ({
     title: state.title,
-    setCaseMode: state.setCaseMode,
     mode: state.mode,
   }))
 
   return (
     <div className="flex">
       <div className="flex flex-1 items-center">
-        <Button onClick={() => setCaseMode("INTRO")} className="text-xl">Exit</Button>
+        <CaseModeInteractionButton />
       </div>
       <h2 className="text-center text-3xl">{title}</h2>
       <div className="flex flex-1 items-center justify-end gap-4">
@@ -32,4 +31,40 @@ export const CaseHeader = () => {
       </div>
     </div>
   )
+}
+
+const CaseModeInteractionButton = () => {
+  const { setCaseMode, mode } = useCaseStore((state) => ({
+    setCaseMode: state.setCaseMode,
+    mode: state.mode,
+  }))
+
+  switch (mode) {
+    case "VIEWING": {
+      return (
+        <Button
+          onClick={() => {
+            setCaseMode("INTRO")
+          }}
+          className="text-xl"
+        >
+          Exit
+        </Button>
+      )
+    }
+    case "TALKING": {
+      return (
+        <Button
+          onClick={() => {
+            setCaseMode("VIEWING")
+          }}
+          className="text-xl"
+        >
+          Back
+        </Button>
+      )
+    }
+  }
+
+  return null
 }
