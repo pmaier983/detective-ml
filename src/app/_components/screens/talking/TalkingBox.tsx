@@ -1,15 +1,12 @@
 "use client"
 
-import type { Message } from "ai"
 import { useAtom } from "jotai"
 
 import { InteractionMethodSelect } from "~/app/_components/screens/talking/InteractionMethodSelect"
 import {
   findLastMessageWithData,
   isMessageWithData,
-  messageDataSchema,
   useChat,
-  type MessageData,
 } from "~/app/_hooks/useChat"
 import { interactionMethodAtom } from "~/app/_state/atoms"
 
@@ -88,7 +85,7 @@ export const TalkingBox = ({
       <div className="p-3 text-center opacity-50">
         {isLoading
           ? "Thinking..."
-          : mostRecentToolMessage?.data.vibe ??
+          : mostRecentToolMessage?.data.emotion ??
             `${suspectName} seems calm but somewhat uneasy.`}
       </div>
       <form

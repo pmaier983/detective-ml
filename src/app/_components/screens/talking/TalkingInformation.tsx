@@ -22,9 +22,7 @@ export const TalkingInformation = ({
     <div className={`flex h-full flex-1 flex-col gap-2 ${className}`}>
       <div className="flex border-4 border-white/10 p-3">
         <AggravationScore
-          aggravationPercent={
-            mostRecentToolMessage?.data.aggravationPercent ?? 0
-          }
+          aggravationPercent={mostRecentToolMessage?.data.aggravation ?? 0}
         />
       </div>
       <div className="flex flex-1 items-center border-4 border-white/10 p-3 text-center">

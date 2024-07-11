@@ -11,7 +11,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ai-sdk/openai": "^0.0.34",
+    "@ai-sdk/google": "^0.0.26",
     "@auth/drizzle-adapter": "^1.2.0",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
     "@radix-ui/react-select": "^2.1.1",
