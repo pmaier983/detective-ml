@@ -36,7 +36,10 @@ export const getCaseStore = ({
     ...initialCaseContent,
     ...overrideInitialContent,
     restart: () => {
-      set(initialCaseContent)
+      set({
+        ...initialCaseContent,
+        ...overrideInitialContent,
+      })
     },
     setCaseMode: (mode) => {
       set({ mode })
