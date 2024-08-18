@@ -12,6 +12,7 @@ import { interactionMethodAtom } from "~/app/_state/atoms"
 
 import styles from "./TalkingBox.module.css"
 import { useEffect, useRef } from "react"
+import { getSystemPromptFromSuspectName } from "~/lib/utils"
 
 interface TalkingBoxProps {
   className?: string
@@ -28,7 +29,8 @@ export const TalkingBox = ({
   const [interactionMethod] = useAtom(interactionMethodAtom)
   const { messages, isLoading, input, handleInputChange, handleSubmit } =
     useChat({
-      system: `Talk to ${suspectName}`,
+      system: getSystemPromptFromSuspectName(suspectName),
+      // TODO: setup a better ID then a name...
       id: suspectName,
     })
 
@@ -85,8 +87,8 @@ export const TalkingBox = ({
       <div className="p-3 text-center opacity-50">
         {isLoading
           ? "Thinking..."
-          : mostRecentToolMessage?.data.emotion ??
-            `${suspectName} seems calm but somewhat uneasy.`}
+          : (mostRecentToolMessage?.data.emotion ??
+            `${suspectName} seems calm but somewhat uneasy.`)}
       </div>
       <form
         className="flex flex-row items-center gap-2 border-[1px] border-white p-2"

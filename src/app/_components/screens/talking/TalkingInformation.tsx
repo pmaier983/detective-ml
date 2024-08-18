@@ -11,12 +11,11 @@ export const TalkingInformation = ({
   suspectName,
 }: TalkingInformationProps) => {
   const { messages } = useChat({
+    // TODO: setup a better ID then a name...
     id: suspectName,
   })
 
   const mostRecentToolMessage = findLastMessageWithData(messages)
-
-  console.log({ mostRecentToolMessage })
 
   return (
     <div className={`flex h-full flex-1 flex-col gap-2 ${className}`}>

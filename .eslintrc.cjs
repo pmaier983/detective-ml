@@ -1,9 +1,9 @@
 /** @type {import("eslint").Linter.Config} */
+
 const config = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: "tsconfig.json",
-    extraFileExtensions: [".json"],
   },
   plugins: ["@typescript-eslint", "drizzle"],
   extends: [
@@ -11,6 +11,7 @@ const config = {
     "plugin:@typescript-eslint/recommended-type-checked",
     "plugin:@typescript-eslint/stylistic-type-checked",
   ],
+  ignores: ["**/*.json"],
   rules: {
     "@typescript-eslint/array-type": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
@@ -50,4 +51,5 @@ const config = {
     ],
   },
 }
+
 module.exports = config
