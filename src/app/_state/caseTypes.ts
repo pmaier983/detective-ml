@@ -5,6 +5,8 @@ export const CASE_MODES = {
   VIEWING: "VIEWING",
   TALKING: "TALKING",
   INTRO: "INTRO",
+  FAILURE: "FAILURE",
+  SUCCESS: "SUCCESS",
 } as const
 
 export type CaseMode = (typeof CASE_MODES)[keyof typeof CASE_MODES]

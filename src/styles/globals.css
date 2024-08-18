@@ -73,4 +73,6 @@ body {
 #__next {
   isolation: isolate;
   height: 100%;
+
+  font-family: vt323;
 }

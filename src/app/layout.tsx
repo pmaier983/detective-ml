@@ -1,12 +1,7 @@
 import "~/styles/globals.css"
 
-import { VT323 } from "next/font/google"
 import { GeneralProviders } from "~/app/_state/GeneralProviders"
-
-const vt323 = VT323({
-  weight: "400",
-  subsets: ["latin"],
-})
+import { vt323 } from "~/app/fonts"
 
 export const metadata = {
   title: "DetectiveML",
