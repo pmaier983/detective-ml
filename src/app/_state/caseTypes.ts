@@ -26,6 +26,7 @@ export const clientSideCaseAdditionsSchema = z.object({
   mode: z.nativeEnum(CASE_MODES),
   talkingSuspectId: z.string().optional(),
   suspects: z.array(suspectSchema),
+  notes: z.array(z.string()),
 })
 
 export const caseSchema = clientSideCaseAdditionsSchema.merge(dbCaseSchema)

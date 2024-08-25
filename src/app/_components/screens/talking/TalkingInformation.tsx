@@ -1,4 +1,5 @@
 import { AggravationScore } from "~/app/_components/AggravationScore"
+import { Notes } from "~/app/_components/Notes"
 import { findLastMessageWithData, useChat } from "~/app/_hooks/useChat"
 
 interface TalkingInformationProps {
@@ -24,8 +25,8 @@ export const TalkingInformation = ({
           aggravationPercent={mostRecentToolMessage?.data.aggravation ?? 0}
         />
       </div>
-      <div className="flex flex-1 items-center border-4 border-white/10 p-3 text-center">
-        Yo Noah, idk how the adding note flow should work...
+      <div className="flex flex-1 overflow-hidden border-4 border-white/10">
+        <Notes />
       </div>
     </div>
   )

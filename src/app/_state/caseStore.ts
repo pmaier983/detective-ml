@@ -8,6 +8,7 @@ interface CaseActions {
 
   setCaseMode: (mode: CaseMode) => void
   startTalkingToSuspect: (suspectId: string) => void
+  setNotes: (notes: string[]) => void
 }
 
 type CaseContent = Case
@@ -24,6 +25,8 @@ export const initialCaseContent: CaseContent = {
 
   suspects: [],
 
+  notes: [],
+
   whoDoneItId: "0",
 }
 
@@ -35,6 +38,7 @@ export const getCaseStore = ({
   createStore<CaseStore>()((set) => ({
     ...initialCaseContent,
     ...overrideInitialContent,
+
     restart: () => {
       set({
         ...initialCaseContent,
@@ -46,6 +50,9 @@ export const getCaseStore = ({
     },
     startTalkingToSuspect: (talkingSuspectId) => {
       set({ mode: "TALKING", talkingSuspectId })
+    },
+    setNotes: (notes) => {
+      set({ notes })
     },
   }))
 
