@@ -8,6 +8,13 @@
 
   "id": "1",
 
+  "notes": [
+    "The cereal box contains a message written in red ink: \"Follow the rainbow.\"",
+    "The spoon is stained with blood and was used to eat the cereal.",
+    "The hidden camera shows the killer placing the box of cereal and the message on the kitchen counter.",
+    "A partial fingerprint was found on the side of the cereal box."
+  ],
+
   "suspects": [
     {
       "name": "Albert Flores",
