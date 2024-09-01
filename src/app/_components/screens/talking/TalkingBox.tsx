@@ -46,10 +46,12 @@ export const TalkingBox = ({
         if (!message) return
         if (!isMessageWithData(message)) return
 
-        setSuspectAggravation({
-          suspectId: suspectName,
-          aggravation: message.data.aggravation,
-        })
+        // TODO(phillipmaier): Fix aggravation
+
+        // setSuspectAggravation({
+        //   suspectId: suspectName,
+        //   aggravation: message.data.aggravation,
+        // })
       },
     })
 
@@ -122,7 +124,7 @@ export const TalkingBox = ({
       >
         <InteractionMethodSelect className="w-min" />
         <textarea
-          className="color-b h-[1.5rem] w-full overflow-hidden bg-black"
+          className="color-b h-[1.5rem] w-full overflow-hidden bg-black pl-1 pr-1"
           value={input}
           placeholder={(() => {
             if (hasMaxedOutAggravation) {
