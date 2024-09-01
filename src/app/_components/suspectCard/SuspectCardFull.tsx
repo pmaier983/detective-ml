@@ -57,8 +57,8 @@ export const SuspectCardFull = (suspect: Suspect) => {
         </div>
         <div className={styles.cardBack}>
           <SuspectCardWrapper {...suspect} hasSuspectPhoto={false}>
-            <div className="z-10 text-sm lg:text-xl xl:text-2xl">
-              <h4 className="lg:text-4xl xl:text-5xl">{suspect.name}</h4>
+            <h4 className="lg:text-4xl xl:text-5xl">{suspect.name}</h4>
+            <div className="z-10 overflow-y-auto text-sm lg:text-xl xl:text-2xl">
               <ul className="flex flex-col gap-1 pl-4">
                 {suspect.facts.map((fact) => {
                   // TODO: Add links for names in facts
@@ -71,13 +71,13 @@ export const SuspectCardFull = (suspect: Suspect) => {
                   )
                 })}
               </ul>
-              <Button
-                onClick={toggleIsFlipped}
-                className="absolute bottom-0 right-0"
-              >
-                Flip Card
-              </Button>
             </div>
+            <Button
+              onClick={toggleIsFlipped}
+              className="self-end text-sm lg:text-xl xl:text-2xl"
+            >
+              Flip Card
+            </Button>
           </SuspectCardWrapper>
         </div>
       </motion.div>
