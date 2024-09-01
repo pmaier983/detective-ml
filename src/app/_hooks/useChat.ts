@@ -47,8 +47,6 @@ export const useChat = ({ id, system }: UseChatProps) => {
   const [input, setInput] = useState<string>("")
   const [messages, setMessages] = useState<Message[]>([])
 
-  console.log({ thePrompt: system })
-
   const { data, isFetching, refetch } = useQuery({
     queryKey: ["chat", id],
     queryFn: async () => {

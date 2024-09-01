@@ -19,7 +19,7 @@ export const TalkingInformation = ({
   const mostRecentToolMessage = findLastMessageWithData(messages)
 
   return (
-    <div className={`flex h-full flex-1 flex-col gap-2 ${className}`}>
+    <div className={`flex h-full min-w-0 flex-1 flex-col gap-2 ${className}`}>
       <div className="flex border-4 border-white/10 p-3">
         <AggravationScore
           aggravationPercent={mostRecentToolMessage?.data.aggravation ?? 0}

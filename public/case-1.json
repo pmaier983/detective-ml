@@ -26,10 +26,11 @@
       "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_3.png",
       "caseId": "1",
       "facts": [
-        "Victim's ex-partner",
-        "Has no alibi for the night of the murder",
-        "Recently lost her job",
-        "Was seen loitering near the victim's house"
+        "Albert Flores is 32 years old.",
+        "He is obsessed with cereal and believes it holds the key to unlocking the secrets of the universe.",
+        "He is a skilled chemist with knowledge of poisons and toxins.",
+        "His alibi for the night of the murder is that he was home alone working on cereal research, which cannot be verified.",
+        "He has been following the Cereal Killer case closely and understands the killer's methods."
       ],
 
       "role": "CULPRIT",
@@ -69,11 +70,11 @@
       "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_1.png",
       "caseId": "1",
       "facts": [
-        "Was the victim's best friend",
-        "Seen leaving the crime scene within the murder window.",
-        "Works as a lawyer",
-        "Dating Jane Cooper for 4 years. Not married.",
-        "1 prior for aggravated assault on a minor"
+        "Jane Cooper is 29 years old.",
+        "She is a renowned chef with a passion for creating unique cereal recipes.",
+        "She is a member of the 'Cereal Lovers Club.'",
+        "Her alibi for the time of the murder is that she was at the 'Cereal Lovers Club' meeting, which cannot be verified.",
+        "She knew the victim, Tony Richards, from the 'Cereal Lovers Club.'"
       ],
       "role": "RED HERRING",
       "background": "Jane Cooper, a renowned chef with a passion for breakfast, is a member of the \"Cereal Lovers Club\" and has a reputation for creating unique and delicious cereal recipes. She is known for her love of cereal and her eccentric personality.",
@@ -113,10 +114,11 @@
       "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_2.png",
       "caseId": "1",
       "facts": [
-        "Recently had a heated argument with the victim",
-        "Seen at the crime scene around the time of the murder",
-        "Works as a software engineer",
-        "Victim's colleague for 3 years"
+        "Floyd Miles is 18 years old.",
+        "He is a neighbor of Tony Richards and witnessed a suspicious individual leaving Tony's apartment.",
+        "He described the individual as having a distinctive scar.",
+        "Floyd claims he was home alone working on a project during the time of the murder.",
+        "He has no known motive for killing Tony Richards."
       ],
 
       "role": "WITNESS",
@@ -156,10 +158,11 @@
       "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_4.png",
       "caseId": "1",
       "facts": [
-        "Neighbor who reported strange noises from the victim's house",
-        "Has a history of petty theft",
-        "Claimed to have seen a shadowy figure leaving the house",
-        "Works as a security guard"
+        "Devon Lane is 43 years old.",
+        "He is a successful businessman with a reputation for being ambitious.",
+        "He claims to have been out of town on business when the murder occurred, but his alibi has not been verified.",
+        "He knew Tony Richards from the Sugarvale community.",
+        "Devon is known for his love of cereal and his willingness to cut corners to achieve his goals."
       ],
 
       "role": "RED HERRING",
@@ -199,10 +202,11 @@
       "imageUrl": "https://s3.amazonaws.com/detective.ml/case_1_suspect_5.png",
       "caseId": "1",
       "facts": [
-        "Victim's business partner",
-        "Was out of town but returned unexpectedly the night of the murder",
-        "Has a clean record",
-        "Likes trees, no cap"
+        "Ronald Richards is 45 years old.",
+        "He is the victim's brother.",
+        "Ronald is a successful entrepreneur.",
+        "He claims to have been out of town on a business trip during the murder, but his alibi cannot be verified.",
+        "Ronald and his brother Tony had a strained relationship."
       ],
 
       "role": "RED HERRING",

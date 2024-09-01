@@ -22,7 +22,7 @@ export const AggravationScore = ({
   )
 
   return (
-    <div className="flex flex-1 flex-col gap-2 text-xl">
+    <div className="flex max-w-full flex-1 flex-col gap-2 text-xl">
       <div className="flex-1 text-center opacity-40">Aggravation</div>
       <div className="flex flex-row gap-2">
         <div className="w-full flex-1 overflow-hidden" ref={elementRef}>
