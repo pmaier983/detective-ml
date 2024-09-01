@@ -15,6 +15,7 @@ export const clientSideSuspectAdditionsSchema = z.object({
   colorHex: z.string(),
   textColorHex: z.string(),
   facts: z.array(z.string()),
+  aggravation: z.number(),
 })
 
 export const suspectSchema =

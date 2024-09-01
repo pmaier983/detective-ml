@@ -1,0 +1,1 @@
+export const MAX_SUSPECT_AGGRAVATION_SCORE = 100

@@ -18,7 +18,7 @@
   "suspects": [
     {
       "name": "Albert Flores",
-
+      "aggravation": 0,
       "id": "3",
       "colorHex": "#436C7E",
       "textColorHex": "#FFFFFF",
@@ -63,6 +63,7 @@
     },
     {
       "name": "Jane Cooper",
+      "aggravation": 0,
       "id": "1",
       "colorHex": "#FEF3A0",
       "textColorHex": "#000000",
@@ -106,7 +107,7 @@
     },
     {
       "name": "Floyd Miles",
-
+      "aggravation": 0,
       "id": "2",
       "colorHex": "#6A4DA9",
       "textColorHex": "#FFFFFF",
@@ -150,7 +151,7 @@
     },
     {
       "name": "Devon Lane",
-
+      "aggravation": 0,
       "id": "4",
       "colorHex": "#312338",
       "textColorHex": "#FFFFFF",
@@ -194,7 +195,7 @@
     },
     {
       "name": "Ronald Richards",
-
+      "aggravation": 0,
       "id": "5",
       "colorHex": "#7D899E",
       "textColorHex": "#FFFFFF",

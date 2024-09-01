@@ -34,6 +34,7 @@ export const Talking = () => {
         <TalkingBox
           suspectName={suspect.name}
           suspectMainColor={suspect.colorHex}
+          suspectAggravation={suspect.aggravation}
         />
         <TalkingInformation suspectName={suspect.name} />
       </div>

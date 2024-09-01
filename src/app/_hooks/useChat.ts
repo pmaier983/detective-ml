@@ -36,13 +36,15 @@ const google = createGoogleGenerativeAI({
 })
 
 interface UseChatProps {
-  system?: string
   id: string
+
+  system?: string
+  onSuccess?: (message?: Message) => void
 }
 
 // This is built to mimic https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-chat
 // We should probably transition to using the SDK when we setup a FE Server
-export const useChat = ({ id, system }: UseChatProps) => {
+export const useChat = ({ id, system, onSuccess }: UseChatProps) => {
   const [interactionMethod] = useAtom(interactionMethodAtom)
   const [input, setInput] = useState<string>("")
   const [messages, setMessages] = useState<Message[]>([])
@@ -54,13 +56,19 @@ export const useChat = ({ id, system }: UseChatProps) => {
         model: google("models/gemini-1.5-flash-latest"),
         system,
         schema: messageDataSchema,
-        prompt: `${interactionMethod === "TALK" ? "User Says" : "User does"}: ${input}`,
-      }).catch((error) => {
-        console.error(error)
-
-        const failedMessage = messages.slice(0, -1)
-        setMessages(failedMessage)
+        prompt: `${interactionMethod === "TALK" ? "Detective Says" : "Detective does"}: ${input}`,
       })
+        .then((data) => {
+          const lastMessageWithData = findLastMessageWithData(messages)
+          onSuccess?.(lastMessageWithData)
+          return data
+        })
+        .catch((error) => {
+          console.error(error)
+
+          const failedMessage = messages.slice(0, -1)
+          setMessages(failedMessage)
+        })
     },
 
     enabled: false,
