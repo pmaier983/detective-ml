@@ -2,7 +2,7 @@
 
 import { createGoogleGenerativeAI } from "@ai-sdk/google"
 import { useQuery, useQueryClient } from "@tanstack/react-query"
-import { generateId, generateObject, type Message } from "ai"
+import { generateId, generateObject, type CoreMessage, type Message } from "ai"
 import { useAtom } from "jotai"
 import { useEffect, useState, type FormEvent } from "react"
 import { z } from "zod"
@@ -12,7 +12,10 @@ export const findLastMessageWithData = (messages: Message[]) => {
   return messages.filter(isMessageWithData).slice(-1).pop()
 }
 
-interface MessageWithData extends Omit<Message, "data"> {
+const ACCEPTED_ROLES = ["user", "assistant"] satisfies Message["role"][]
+
+interface MessageWithData extends Omit<Message, "data" | "role"> {
+  role: (typeof ACCEPTED_ROLES)[number]
   data: MessageData
 }
 
@@ -20,6 +23,20 @@ export const isMessageWithData = (
   message: Message,
 ): message is MessageWithData => {
   return messageDataSchema.safeParse(message.data).success
+}
+
+export const messageToCoreMessage = (
+  message: MessageWithData | Message,
+): CoreMessage | undefined => {
+  if (message.role === "function") return undefined
+  if (message.role === "data") return undefined
+  if (message.role === "system") return undefined
+  if (message.role === "tool") return undefined
+
+  return {
+    content: message.content,
+    role: message.role,
+  }
 }
 
 export const messageDataSchema = z.object({
@@ -47,13 +64,16 @@ interface UseChatProps {
 export const useChat = ({ id, system, onSuccess }: UseChatProps) => {
   const queryClient = useQueryClient()
   const [interactionMethod] = useAtom(interactionMethodAtom)
+
+  // TODO: replace with hook form to avoid constant re-renders on each input change
   const [input, setInput] = useState<string>("")
 
   const chatMessagesQueryKey = ["chat", "messages", id]
 
   const { data: messages } = useQuery({
     queryKey: chatMessagesQueryKey,
-    queryFn: async () => await Promise.resolve(false as unknown as Message[]),
+    queryFn: async () =>
+      await Promise.resolve(false as unknown as MessageWithData[]),
     retry: false,
     staleTime: Infinity,
     gcTime: Infinity,
@@ -70,17 +90,23 @@ export const useChat = ({ id, system, onSuccess }: UseChatProps) => {
       return generateObject({
         model: google("models/gemini-1.5-flash-latest"),
         system,
+        messages: [
+          ...messages.map(messageToCoreMessage).filter(Boolean),
+          {
+            role: "user",
+            content: `${interactionMethod === "TALK" ? "Detective Says" : "Detective does"}: ${input}`,
+          },
+        ] satisfies CoreMessage[],
         schema: messageDataSchema,
-        prompt: `${interactionMethod === "TALK" ? "Detective Says" : "Detective does"}: ${input}`,
       })
         .then((data) => {
           const newMessage = {
             id: generateId(),
             createdAt: new Date(),
             content: data.object.response,
-            role: "tool",
+            role: "assistant",
             data: data.object,
-          } satisfies Message
+          } satisfies MessageWithData
 
           onSuccess?.(newMessage)
 
@@ -91,7 +117,6 @@ export const useChat = ({ id, system, onSuccess }: UseChatProps) => {
 
           const failedMessage = messages.slice(0, -1)
           queryClient.setQueryData(chatMessagesQueryKey, failedMessage)
-          return error
         })
     },
 
@@ -140,8 +165,6 @@ export const useChat = ({ id, system, onSuccess }: UseChatProps) => {
 
     void refetch()
   }
-
-  console.log({ messages, input, isFetching })
 
   return {
     messages,

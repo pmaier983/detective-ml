@@ -72,8 +72,8 @@ export const TalkingBox = ({ className, suspect }: TalkingBoxProps) => {
       <div className={`flex flex-col overflow-auto ${styles.chatScrollArea}`}>
         <div className={`flex flex-col gap-3`}>
           {messages.map((message) => {
-            // tool === message from the AI
-            if (message.role === "tool" && isMessageWithData(message)) {
+            // assistant === message from the AI
+            if (message.role === "assistant" && isMessageWithData(message)) {
               return (
                 <div className="flex flex-col" key={message.id}>
                   <div
