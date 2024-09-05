@@ -16,20 +16,14 @@ import { getSystemPromptFromSuspectName } from "~/lib/utils"
 import { useCaseStore } from "~/app/_state/caseStore"
 import { stat } from "fs"
 import { MAX_SUSPECT_AGGRAVATION_SCORE } from "~/lib/constants"
+import type { Suspect } from "~/app/_state/caseTypes"
 
 interface TalkingBoxProps {
   className?: string
-  suspectName: string
-  suspectMainColor: string
-  suspectAggravation: number
+  suspect: Suspect
 }
 
-export const TalkingBox = ({
-  className,
-  suspectName,
-  suspectMainColor,
-  suspectAggravation,
-}: TalkingBoxProps) => {
+export const TalkingBox = ({ className, suspect }: TalkingBoxProps) => {
   const scrollAreaEndDivRef = useRef<HTMLDivElement>(null)
   const [interactionMethod] = useAtom(interactionMethodAtom)
 
@@ -39,19 +33,17 @@ export const TalkingBox = ({
 
   const { messages, isLoading, input, handleInputChange, handleSubmit } =
     useChat({
-      system: getSystemPromptFromSuspectName(suspectName),
+      system: getSystemPromptFromSuspectName(suspect.name),
       // TODO: setup a better ID then a name...
-      id: suspectName,
+      id: suspect.name,
       onSuccess: (message) => {
         if (!message) return
         if (!isMessageWithData(message)) return
 
-        // TODO(phillipmaier): Fix aggravation
-
-        // setSuspectAggravation({
-        //   suspectId: suspectName,
-        //   aggravation: message.data.aggravation,
-        // })
+        setSuspectAggravation({
+          suspectId: suspect.id,
+          aggravation: message.data.aggravation,
+        })
       },
     })
 
@@ -71,7 +63,7 @@ export const TalkingBox = ({
   const hasMaxedOutAggravation =
     (mostRecentToolMessage?.data.aggravation ?? 0) >=
       MAX_SUSPECT_AGGRAVATION_SCORE ||
-    suspectAggravation >= MAX_SUSPECT_AGGRAVATION_SCORE
+    suspect.aggravation >= MAX_SUSPECT_AGGRAVATION_SCORE
 
   return (
     <div
@@ -87,10 +79,10 @@ export const TalkingBox = ({
                   <div
                     key={message.id}
                     style={{
-                      color: suspectMainColor,
+                      color: suspect.colorHex,
                     }}
                   >
-                    {suspectName}
+                    {suspect.name}
                   </div>
                   <div>{message.content}</div>
                 </div>
@@ -116,7 +108,7 @@ export const TalkingBox = ({
         {isLoading
           ? "Thinking..."
           : (mostRecentToolMessage?.data.emotion ??
-            `${suspectName} seems calm but somewhat uneasy.`)}
+            `${suspect.name} seems calm but somewhat uneasy.`)}
       </div>
       <form
         className="flex flex-row items-center gap-2 border-[1px] border-white p-2"
@@ -128,14 +120,14 @@ export const TalkingBox = ({
           value={input}
           placeholder={(() => {
             if (hasMaxedOutAggravation) {
-              return `${suspectName} is too aggravated to talk with you anymore.`
+              return `${suspect.name} is too aggravated to talk with you anymore.`
             }
 
             switch (interactionMethod) {
               case "TALK":
-                return `Talk to ${suspectName}`
+                return `Talk to ${suspect.name}`
               case "ACTION":
-                return `Interact with ${suspectName}`
+                return `Interact with ${suspect.name}`
               default:
                 throw Error("Unknown interaction method")
             }

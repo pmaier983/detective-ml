@@ -31,11 +31,7 @@ export const Talking = () => {
         }}
       >
         <SuspectCard variant="FULL" {...suspect} />
-        <TalkingBox
-          suspectName={suspect.name}
-          suspectMainColor={suspect.colorHex}
-          suspectAggravation={suspect.aggravation}
-        />
+        <TalkingBox suspect={suspect} />
         <TalkingInformation suspectName={suspect.name} />
       </div>
     </div>
