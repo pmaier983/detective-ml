@@ -2,6 +2,7 @@
 import { Button } from "~/app/_components/Button"
 import { useCaseStore } from "~/app/_state/caseStore"
 import case1 from "~/../public/case-1.json"
+import { useQueryClient } from "@tanstack/react-query"
 
 // Should I be using some weird Next.js layout stuff instead?
 // We can create layered layout to show the different states?
@@ -49,6 +50,7 @@ export const CaseHeader = () => {
 }
 
 const CaseModeInteractionButton = () => {
+  const queryClient = useQueryClient()
   const { mode, setCaseMode, restart } = useCaseStore((state) => ({
     mode: state.mode,
     setCaseMode: state.setCaseMode,
@@ -84,7 +86,7 @@ const CaseModeInteractionButton = () => {
       return (
         <Button
           onClick={() => {
-            restart()
+            restart(queryClient)
           }}
           className="text-xl"
         >
@@ -96,7 +98,7 @@ const CaseModeInteractionButton = () => {
       return (
         <Button
           onClick={() => {
-            restart()
+            restart(queryClient)
           }}
           className="text-xl"
         >

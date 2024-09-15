@@ -1,10 +1,11 @@
 "use client"
+import type { QueryClient } from "@tanstack/react-query"
 import { createContext, useContext } from "react"
 import { createStore, useStore } from "zustand"
 import type { Case, CaseMode, Suspect } from "~/app/_state/caseTypes"
 
 interface CaseActions {
-  restart: () => void
+  restart: (queryClient: QueryClient) => void
 
   updateSuspect: ({
     suspectId,
@@ -54,7 +55,10 @@ export const getCaseStore = ({
     ...initialCaseContent,
     ...overrideInitialContent,
 
-    restart: () => {
+    restart: (queryClient) => {
+      // TODO: consider what cache's should be preserved on restart?
+      queryClient.clear()
+
       set({
         ...initialCaseContent,
         ...overrideInitialContent,
